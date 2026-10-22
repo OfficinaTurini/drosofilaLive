@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build" ToolsVersion="14.0">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0E37B302-6D3C-4C86-A0B7-2F29C0A8A57D}</ProjectGuid>
+    <Keyword>QtVS_v304</Keyword>
+    <RootNamespace>drosofilaLive</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <QtMsBuild Condition="'$(QtMsBuild)'=='' OR !Exists('$(QtMsBuild)\qt.targets')">$(MSBuildProjectDirectory)\QtMsBuild</QtMsBuild>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="$(QtMsBuild)\qt_defaults.props" Condition="Exists('$(QtMsBuild)\qt_defaults.props')" />
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <QtInstall>5.15.2 x64 VS2019</QtInstall>
+    <QtModules>core;opengl;gui;widgets;openglextensions</QtModules>
+  </PropertyGroup>
+  <PropertyGroup Label="QtSettings" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <QtInstall>5.15.2 x64 VS2019</QtInstall>
+    <QtModules>core;opengl;gui;widgets;openglextensions</QtModules>
+  </PropertyGroup>
+  <Target Name="QtMsBuildNotFound" BeforeTargets="CustomBuild;ClCompile" Condition="!Exists('$(QtMsBuild)\qt.targets') OR !Exists('$(QtMsBuild)\Qt.props')">
+    <Message Importance="High" Text="QtMsBuild: could not locate qt.targets, qt.props; project may not build correctly." />
+  </Target>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+    <Import Project="$(QtMsBuild)\Qt.props" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">..\_app\drosofilaLive\x64\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">..\_app\drosofilaLive\x64\</OutDir>
+    <IntDir>build\$(Configuration)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <TargetName>$(ProjectName)d</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>UNICODE;_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;.\model;.\renderer;.\thirdparty\cvbasic;..\_include\qwt3d;..\_include\qwt;..\_osl\opencv\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>Disabled</Optimization>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <OpenMPSupport>true</OpenMPSupport>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;..\_lib\x64\qwtplot3dd.lib;..\_lib\x64\qwtd.lib;..\_lib\x64\cvBasicEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <QtMoc>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <DynamicSource>output</DynamicSource>
+      <QtMocDir>.\GeneratedFiles\$(ConfigurationName)</QtMocDir>
+      <QtMocFileName>moc_%(Filename).cpp</QtMocFileName>
+    </QtMoc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <QtUicDir>.\GeneratedFiles</QtUicDir>
+      <QtUicFileName>ui_%(Filename).h</QtUicFileName>
+    </QtUic>
+    <PostBuildEvent>
+      <Command>if exist "$(ProjectDir)data" (
+  if not exist "$(OutDir)data" mkdir "$(OutDir)data"
+  xcopy /E /I /D /Y "$(ProjectDir)data" "$(OutDir)data" &gt;nul
+)
+if not exist "$(OutDir)work" mkdir "$(OutDir)work"
+if not exist "$(OutDir)work\scripts" mkdir "$(OutDir)work\scripts"
+if not exist "$(OutDir)work\results" mkdir "$(OutDir)work\results"
+if not exist "$(OutDir)work\reports" mkdir "$(OutDir)work\reports"
+if not exist "$(OutDir)work\archives" mkdir "$(OutDir)work\archives"
+if not exist "$(OutDir)work\logs" mkdir "$(OutDir)work\logs"
+if exist "$(ProjectDir)scripts\*.bas" xcopy /Y /I "$(ProjectDir)scripts\*.bas" "$(OutDir)work\scripts" &gt;nul
+if exist "$(ProjectDir)scripts\*.ps1" xcopy /Y /I "$(ProjectDir)scripts\*.ps1" "$(OutDir)work\scripts" &gt;nul
+if exist "$(ProjectDir)scripts\README_V0153_TEST_SUITE.md" copy /Y "$(ProjectDir)scripts\README_V0153_TEST_SUITE.md" "$(OutDir)work\scripts\README_V0153_TEST_SUITE.md" &gt;nul
+if exist "$(ProjectDir)scripts\README_V0154_TEST_SUITE.md" copy /Y "$(ProjectDir)scripts\README_V0154_TEST_SUITE.md" "$(OutDir)work\scripts\README_V0154_TEST_SUITE.md" &gt;nul
+if exist "$(ProjectDir)scripts\README_V016_TEST_SUITE.md" copy /Y "$(ProjectDir)scripts\README_V016_TEST_SUITE.md" "$(OutDir)work\scripts\README_V016_TEST_SUITE.md" &gt;nul
+if exist "$(ProjectDir)scripts\README_V0161_TEST_SUITE.md" copy /Y "$(ProjectDir)scripts\README_V0161_TEST_SUITE.md" "$(OutDir)work\scripts\README_V0161_TEST_SUITE.md" &gt;nul
+if exist "$(ProjectDir)scripts\README_V017_TEST_SUITE.md" copy /Y "$(ProjectDir)scripts\README_V017_TEST_SUITE.md" "$(OutDir)work\scripts\README_V017_TEST_SUITE.md" &gt;nul
+if exist "$(ProjectDir)scripts\README_V018_TEST_SUITE.md" copy /Y "$(ProjectDir)scripts\README_V018_TEST_SUITE.md" "$(OutDir)work\scripts\README_V018_TEST_SUITE.md" &gt;nul
+if exist "$(ProjectDir)README_V0_15_3_2_RUNTIME_WORKDIR.md" copy /Y "$(ProjectDir)README_V0_15_3_2_RUNTIME_WORKDIR.md" "$(OutDir)work\README_RUNTIME_WORKDIR.md" &gt;nul
+if exist "$(ProjectDir)help" xcopy /E /I /Y "$(ProjectDir)help" "$(OutDir)help" &gt;nul
+</Command>
+      <Message>Copying validated data and preparing deterministic runtime work layout...</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <PreprocessorDefinitions>UNICODE;_UNICODE;QT_NO_DEBUG;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>GeneratedFiles\$(ConfigurationName);GeneratedFiles;.;.\model;.\renderer;.\thirdparty\cvbasic;..\_include\qwt3d;..\_include\qwt;..\_osl\opencv\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp14</LanguageStandard>
+      <OpenMPSupport>true</OpenMPSupport>
+      <AdditionalOptions>/utf-8 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <OutputFile>$(OutDir)\$(ProjectName).exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalDependencies>opengl32.lib;glu32.lib;..\_lib\x64\qwtplot3d.lib;..\_lib\x64\qwt.lib;..\_lib\x64\cvBasicEngine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <QtMoc>
+      <ExecutionDescription>Moc'ing %(Identity)...</ExecutionDescription>
+      <DynamicSource>output</DynamicSource>
+      <QtMocDir>.\GeneratedFiles\$(ConfigurationName)</QtMocDir>
+      <QtMocFileName>moc_%(Filename).cpp</QtMocFileName>
+    </QtMoc>
+    <QtUic>
+      <ExecutionDescription>Uic'ing %(Identity)...</ExecutionDescription>
+      <QtUicDir>.\GeneratedFiles</QtUicDir>
+      <QtUicFileName>ui_%(Filename).h</QtUicFileName>
+    </QtUic>
+    <PostBuildEvent>
+      <Command>if exist "$(ProjectDir)data" (
+  if not exist "$(OutDir)data" mkdir "$(OutDir)data"
+  xcopy /E /I /D /Y "$(ProjectDir)data" "$(OutDir)data" &gt;nul
+)
+if not exist "$(OutDir)work" mkdir "$(OutDir)work"
+if not exist "$(OutDir)work\scripts" mkdir "$(OutDir)work\scripts"
+if not exist "$(OutDir)work\results" mkdir "$(OutDir)work\results"
+if not exist "$(OutDir)work\reports" mkdir "$(OutDir)work\reports"
+if not exist "$(OutDir)work\archives" mkdir "$(OutDir)work\archives"
+if not exist "$(OutDir)work\logs" mkdir "$(OutDir)work\logs"
+if exist "$(ProjectDir)scripts\*.bas" xcopy /Y /I "$(ProjectDir)scripts\*.bas" "$(OutDir)work\scripts" &gt;nul
+if exist "$(ProjectDir)scripts\*.ps1" xcopy /Y /I "$(ProjectDir)scripts\*.ps1" "$(OutDir)work\scripts" &gt;nul
+if exist "$(ProjectDir)scripts\README_V0153_TEST_SUITE.md" copy /Y "$(ProjectDir)scripts\README_V0153_TEST_SUITE.md" "$(OutDir)work\scripts\README_V0153_TEST_SUITE.md" &gt;nul
+if exist "$(ProjectDir)scripts\README_V0154_TEST_SUITE.md" copy /Y "$(ProjectDir)scripts\README_V0154_TEST_SUITE.md" "$(OutDir)work\scripts\README_V0154_TEST_SUITE.md" &gt;nul
+if exist "$(ProjectDir)scripts\README_V016_TEST_SUITE.md" copy /Y "$(ProjectDir)scripts\README_V016_TEST_SUITE.md" "$(OutDir)work\scripts\README_V016_TEST_SUITE.md" &gt;nul
+if exist "$(ProjectDir)scripts\README_V0161_TEST_SUITE.md" copy /Y "$(ProjectDir)scripts\README_V0161_TEST_SUITE.md" "$(OutDir)work\scripts\README_V0161_TEST_SUITE.md" &gt;nul
+if exist "$(ProjectDir)scripts\README_V017_TEST_SUITE.md" copy /Y "$(ProjectDir)scripts\README_V017_TEST_SUITE.md" "$(OutDir)work\scripts\README_V017_TEST_SUITE.md" &gt;nul
+if exist "$(ProjectDir)scripts\README_V018_TEST_SUITE.md" copy /Y "$(ProjectDir)scripts\README_V018_TEST_SUITE.md" "$(OutDir)work\scripts\README_V018_TEST_SUITE.md" &gt;nul
+if exist "$(ProjectDir)README_V0_15_3_2_RUNTIME_WORKDIR.md" copy /Y "$(ProjectDir)README_V0_15_3_2_RUNTIME_WORKDIR.md" "$(OutDir)work\README_RUNTIME_WORKDIR.md" &gt;nul
+if exist "$(ProjectDir)help" xcopy /E /I /Y "$(ProjectDir)help" "$(OutDir)help" &gt;nul
+</Command>
+      <Message>Copying validated data and preparing deterministic runtime work layout...</Message>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="core\Connectome.cpp" />
+    <ClCompile Include="core\RuntimePaths.cpp" />
+    <ClCompile Include="diagnostics.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="mainwindow.cpp" />
+    <ClCompile Include="renderer\QwtPlot3DRenderer.cpp" />
+    <ClCompile Include="io\PrecomputedSkeletonLoader.cpp" />
+    <ClCompile Include="model\CausalCircuit.cpp" />
+    <ClCompile Include="model\SkeletonSceneTransform.cpp" />
+    <ClCompile Include="core\LifEngine.cpp" />
+    <ClCompile Include="core\StimulusSet.cpp" />
+    <ClCompile Include="simulation\SimulationController.cpp" />
+    <ClCompile Include="experiment\ExperimentController.cpp" />
+    <ClCompile Include="StampChecker.cpp" />
+    <ClCompile Include="timeline\TimelinePlotController.cpp" />
+    <ClCompile Include="script\ScriptBridge.cpp" />
+    <ClCompile Include="archive\ExperimentArchive.cpp" />
+    <ClCompile Include="statistics\StatisticsController.cpp" />
+    <ClCompile Include="statistics\StatisticsPlotController.cpp" />
+    <ClCompile Include="explorer\CircuitExplorer.cpp" />
+    <ClCompile Include="explorer\CircuitGraphController.cpp" />
+    <ClCompile Include="discovery\CausalDiscoveryController.cpp" />
+    <ClCompile Include="reproduction\ReproductionAnalyzer.cpp" />
+    <ClCompile Include="analysis\CausalStructureAnalysis.cpp" />
+    <ClCompile Include="analysis\CausalSurprisePlotController.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="mainwindow.h" />
+    <ClInclude Include="core\BinaryFormat.h" />
+    <ClInclude Include="core\Connectome.h" />
+    <ClInclude Include="core\RuntimePaths.h" />
+    <ClInclude Include="diagnostics.h" />
+    <ClInclude Include="model\SkeletonNode.h" />
+    <ClInclude Include="model\NeuronSkeleton.h" />
+    <ClInclude Include="model\NeuronVisualState.h" />
+    <ClInclude Include="renderer\INeuronRenderer3D.h" />
+    <ClInclude Include="renderer\QwtPlot3DRenderer.h" />
+    <ClInclude Include="io\PrecomputedSkeletonLoader.h" />
+    <ClInclude Include="model\CausalCircuit.h" />
+    <ClInclude Include="model\SkeletonSceneTransform.h" />
+    <ClInclude Include="core\LifEngine.h" />
+    <ClInclude Include="core\StimulusSet.h" />
+    <QtMoc Include="simulation\SimulationController.h" />
+    <QtMoc Include="experiment\ExperimentController.h" />
+    <ClInclude Include="experiment\ExperimentData.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="StampChecker.h" />
+    <ClInclude Include="timeline\TimelinePlotController.h" />
+    <QtMoc Include="script\ScriptBridge.h" />
+    <ClInclude Include="archive\ExperimentArchive.h" />
+    <QtMoc Include="statistics\StatisticsController.h" />
+    <ClInclude Include="statistics\StatisticsPlotController.h" />
+    <ClInclude Include="thirdparty\cvbasic\CvBasicEngine.h" />
+    <ClInclude Include="thirdparty\cvbasic\CvBasicEngine_global.h" />
+    <QtMoc Include="explorer\CircuitExplorer.h" />
+    <QtMoc Include="explorer\CircuitGraphController.h" />
+    <QtMoc Include="discovery\CausalDiscoveryController.h" />
+    <ClInclude Include="reproduction\ReproductionAnalyzer.h" />
+    <ClInclude Include="analysis\CausalStructureAnalysis.h" />
+    <QtMoc Include="analysis\CausalSurprisePlotController.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="mainwindow.ui" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README_V0_4_CAUSAL_CIRCUIT.md" />
+    <None Include="README_V0_5_GUI_CLEANUP.md" />
+    <None Include="tools\prepare_flywire783_circuit.ps1" />
+    <None Include="data\flywire783_circuit\README.txt" />
+    <None Include="data\stimuli\sugarR_v783_20of21.txt" />
+    <None Include="README_V0_6_SIMULATION_CORE.md" />
+    <None Include="README_V0_7_EXPERIMENT_CONTROLLER.md" />
+    <None Include="README_V0_8_TABS_TIMELINE.md" />
+    <None Include="README_V0_9_CAUSAL_COMPARE.md" />
+    <None Include="README_V0_10_CVBASIC_SCRIPTING.md" />
+    <None Include="README_V0_10_1_NATIVE_HOST_COMMANDS.md" />
+    <None Include="README_V0_10_2_DRO_NAMESPACE_PROGRESS.md" />
+    <None Include="scripts\v0102_regression_dnGe031.bas" />
+    <None Include="README_V0_11_BATCH_EPISTASIS.md" />
+    <None Include="scripts\v011_epistasis_dnGe031_cb0393.bas" />
+    <None Include="scripts\v011_epistasis_all_pairs.bas" />
+    <None Include="README_V0_12_EXPERIMENT_ARCHIVE.md" />
+    <None Include="scripts\v012_archive_replay.bas" />
+    <None Include="README_V0_13_STATISTICAL_VALIDATION.md" />
+    <None Include="README_V0_13_1_GUI_CONSOLIDATION.md" />
+    <None Include="scripts\v013_statistical_validation.bas" />
+    <None Include="README_V0_14_CIRCUIT_EXPLORER.md" />
+    <None Include="README_V0_15_AUTOMATED_CAUSAL_DISCOVERY.md" />
+    <None Include="README_V0_15_3_2_RUNTIME_WORKDIR.md" />
+    <None Include="scripts\README_V0153_TEST_SUITE.md" />
+    <None Include="scripts\v0153_01_discovery_smoke.bas" />
+    <None Include="scripts\v0153_02_end_to_end_reference.bas" />
+    <None Include="scripts\v0153_03_intensive_discovery.bas" />
+    <None Include="scripts\v0153_04_reproducibility_same_seed.bas" />
+    <None Include="scripts\v0153_05_graph_parameter_sweep.bas" />
+    <None Include="scripts\v0153_06_direction_sanity.bas" />
+    <None Include="scripts\v0153_07_legacy_regression.bas" />
+    <None Include="scripts\v0153_08_seed_sensitivity.bas" />
+    <None Include="scripts\verify_v0153_smoke.ps1" />
+    <None Include="scripts\verify_v0153_repro.ps1" />
+    <None Include="scripts\verify_v0153_reference.ps1" />
+    <None Include="scripts\verify_v0153_all.ps1" />
+    <None Include="README_V0_16_SCIENTIFIC_PROVENANCE_DISCOVERY_REPLAY.md" />
+    <None Include="README_V0_16_0_R1_DISCOVERY_REPLAY_FIX.md" />
+    <None Include="README_V0_16_0_R2_REPLAY_QWT_SHUTDOWN_FIX.md" />
+    <None Include="README_V0_16_0_R5_QWT3D_VISUAL_CONTROLS.md" />
+    <None Include="README_V0_16_0_R5_2_MORPHOLOGY_PALETTES.md" />
+    <None Include="DROSOFILALIVE_CHECKPOINT_v0_16_0_R5_2.md" />
+    <None Include="DROSOFILALIVE_CHECKPOINT_v0_16_0_R5.md" />
+    <None Include="DROSOFILALIVE_CHECKPOINT_v0_16_0_R2.md" />
+    <None Include="DROSOFILALIVE_CHECKPOINT_v0_16_0_R1.md" />
+    <None Include="DROSOFILALIVE_CHECKPOINT_v0_16_0.md" />
+    <None Include="scripts\README_V016_TEST_SUITE.md" />
+    <None Include="scripts\v016_01_archive_discovery_roundtrip.bas" />
+    <None Include="scripts\v016_02_discovery_archive_replay.bas" />
+    <None Include="scripts\verify_v016_archive.ps1" />
+    <None Include="README_V0_16_1_SCIENTIFIC_REPRODUCE.md" />
+    <None Include="README_V0_16_1_R1_PREFLIGHT_UTF8_FIX.md" />
+    <None Include="DROSOFILALIVE_CHECKPOINT_v0_16_1.md" />
+    <None Include="scripts\README_V0161_TEST_SUITE.md" />
+    <None Include="scripts\verify_v0161_reproduce_report.ps1" />
+    <None Include="README_V0_17_GRAPH_CAUSALITY_CAUSAL_SURPRISE.md" />
+    <None Include="DROSOFILALIVE_CHECKPOINT_v0_17.md" />
+    <None Include="scripts\README_V017_TEST_SUITE.md" />
+    <None Include="scripts\v017_01_causal_surprise.bas" />
+    <None Include="scripts\verify_v017_surprise.ps1" />
+    <None Include="help\style.css" />
+    <None Include="help\it\index.html" />
+    <None Include="help\it\fondamenti.html" />
+    <None Include="help\en-GB\index.html" />
+    <None Include="help\en-GB\fundamentals.html" />
+    <None Include="help\license.html" />
+    <None Include="help\credits.html" />
+    <None Include="README_V0_18_RELEASE_DOCUMENTATION.md" />
+    <None Include="DROSOFILALIVE_CHECKPOINT_v0_18.md" />
+    <None Include="README_V0_18_R1_FOUNDATIONS.md" />
+    <None Include="DROSOFILALIVE_CHECKPOINT_v0_18_R1.md" />
+    <None Include="release\README_EXTERNAL_PACKAGING.md" />
+    <None Include="scripts\README_V018_TEST_SUITE.md" />
+    <None Include="scripts\verify_v018_release_docs.ps1" />
+    <None Include="README_V0_18_R3_LAYOUT_UNIFICATION.md" />
+    <None Include="DROSOFILALIVE_CHECKPOINT_v0_18_R3.md" />
+    <None Include="tools\migrate_layout_v018_r3.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="drosofila.qrc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="drosofila.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon1.ico" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <Import Project="$(QtMsBuild)\qt.targets" Condition="Exists('$(QtMsBuild)\qt.targets')" />
+</Project>

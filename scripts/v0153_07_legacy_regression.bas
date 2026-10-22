@@ -1,0 +1,22 @@
+' drosofilaLive v0.15.3.2 - regression of pre-Discovery cvBasic commands
+' This guards against breaking the validated v0.10-v0.13 scripting path.
+PRINT "=== v0.15.3.2 LEGACY SCRIPT REGRESSION ==="
+
+DRO.PATHS
+
+DRO.DURATION 1000
+DRO.SUGAR 100
+DRO.TRIALS 1
+DRO.SEED 12345
+DRO.CLEARWATCH
+DRO.WATCH "DNge031"
+DRO.WATCH "CB0393"
+DRO.WATCH "TARGET"
+
+DRO.COMPARE "DNge031"
+DRO.EPISTASIS "DNge031", "CB0393"
+DRO.REPLICATES 3
+DRO.STATS "DNge031", "CB0393"
+DRO.RANK
+
+PRINT "=== LEGACY REGRESSION COMPLETE ==="

@@ -1,0 +1,4222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1453</width>
+    <height>1089</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1120</width>
+    <height>760</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>drosofilaLive v0.18-r3</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="drosofila.qrc">
+    <normaloff>:/drosofila/images/icon.png</normaloff>:/drosofila/images/icon.png</iconset>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="centralLayout">
+    <property name="spacing">
+     <number>6</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <layout class="QHBoxLayout" name="workspaceLayout">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <property name="leftMargin">
+       <number>8</number>
+      </property>
+      <property name="topMargin">
+       <number>8</number>
+      </property>
+      <property name="rightMargin">
+       <number>8</number>
+      </property>
+      <property name="bottomMargin">
+       <number>8</number>
+      </property>
+      <item>
+       <widget class="QWidget" name="controlPanel" native="true">
+        <property name="minimumSize">
+         <size>
+          <width>360</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>430</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <layout class="QVBoxLayout" name="controlLayout">
+         <property name="leftMargin">
+          <number>0</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>0</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="titleLB">
+           <property name="toolTip">
+            <string>Standalone visual environment for validated experiments on the Drosophila connectome.</string>
+           </property>
+           <property name="text">
+            <string>drosofilaLive</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="subtitleLB">
+           <property name="text">
+            <string>FlyWire v783 - validated causal circuit workspace</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QTabWidget" name="controlTabs">
+           <property name="currentIndex">
+            <number>0</number>
+           </property>
+           <widget class="QWidget" name="dataTab">
+            <attribute name="icon">
+             <iconset resource="drosofila.qrc">
+              <normaloff>:/drosofila/images/database.png</normaloff>:/drosofila/images/database.png</iconset>
+            </attribute>
+            <attribute name="title">
+             <string>Data</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="dataTabLayout">
+             <item>
+              <widget class="QGroupBox" name="dataGB">
+               <property name="title">
+                <string>Dataset</string>
+               </property>
+               <layout class="QGridLayout" name="dataLayout">
+                <item row="0" column="0" colspan="2">
+                 <widget class="QLabel" name="connectomePathLB">
+                  <property name="text">
+                   <string>Connectome v783 / data</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLineEdit" name="connectomePathLE">
+                  <property name="toolTip">
+                   <string>Directory containing neurons.bin, edges.bin and optionally annotations.tsv.</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QPushButton" name="loadConnectomePB">
+                  <property name="text">
+                   <string>Load</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="drosofila.qrc">
+                    <normaloff>:/drosofila/images/fileopen.png</normaloff>:/drosofila/images/fileopen.png</iconset>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0" colspan="2">
+                 <widget class="QLabel" name="connectomeStatusLB">
+                  <property name="text">
+                   <string>Connectome not loaded</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0" colspan="2">
+                 <widget class="QLabel" name="connectomeSummaryLB">
+                  <property name="text">
+                   <string>-</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                  <property name="textInteractionFlags">
+                   <set>Qt::TextSelectableByMouse</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0" colspan="2">
+                 <widget class="QFrame" name="dataLine">
+                  <property name="frameShape">
+                   <enum>QFrame::HLine</enum>
+                  </property>
+                  <property name="frameShadow">
+                   <enum>QFrame::Sunken</enum>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="0" colspan="2">
+                 <widget class="QLabel" name="circuitPathLB">
+                  <property name="text">
+                   <string>Geometry / validated 7-neuron circuit</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="0">
+                 <widget class="QLineEdit" name="circuitPathLE">
+                  <property name="toolTip">
+                   <string>Directory containing the seven exact materialization-783 precomputed skeleton files.</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="1">
+                 <widget class="QPushButton" name="loadCircuitPB">
+                  <property name="text">
+                   <string>Load</string>
+                  </property>
+                  <property name="icon">
+                   <iconset resource="drosofila.qrc">
+                    <normaloff>:/drosofila/images/fileopen.png</normaloff>:/drosofila/images/fileopen.png</iconset>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="sceneGB">
+               <property name="title">
+                <string>Scene</string>
+               </property>
+               <layout class="QFormLayout" name="sceneLayout">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="backendLB">
+                  <property name="text">
+                   <string>Backend</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QLabel" name="backendValueLB">
+                  <property name="text">
+                   <string>-</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="sourceLB">
+                  <property name="text">
+                   <string>Source</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QLabel" name="sourceValueLB">
+                  <property name="text">
+                   <string>-</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="neuronsLB">
+                  <property name="text">
+                   <string>Neurons</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QLabel" name="neuronsValueLB">
+                  <property name="text">
+                   <string>0</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="nodesLB">
+                  <property name="text">
+                   <string>Nodes</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QLabel" name="nodesValueLB">
+                  <property name="text">
+                   <string>0</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0">
+                 <widget class="QLabel" name="segmentsLB">
+                  <property name="text">
+                   <string>Segments</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="1">
+                 <widget class="QLabel" name="segmentsValueLB">
+                  <property name="text">
+                   <string>0</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="0">
+                 <widget class="QLabel" name="unitsLB">
+                  <property name="text">
+                   <string>Units</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="1">
+                 <widget class="QLabel" name="unitsValueLB">
+                  <property name="text">
+                   <string>-</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="0">
+                 <widget class="QLabel" name="spanLB">
+                  <property name="text">
+                   <string>Anatomical span</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="1">
+                 <widget class="QLabel" name="spanValueLB">
+                  <property name="text">
+                   <string>-</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <spacer name="dataTabSpacer">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="circuitExplorerTab">
+            <attribute name="icon">
+             <iconset resource="drosofila.qrc">
+              <normaloff>:/drosofila/images/circuit.png</normaloff>:/drosofila/images/circuit.png</iconset>
+            </attribute>
+            <attribute name="title">
+             <string>Circuit</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <item>
+              <widget class="QGroupBox" name="explorerQueryGB">
+               <property name="title">
+                <string>Circuit Explorer</string>
+               </property>
+               <layout class="QGridLayout" name="explorerQueryGL">
+                <item row="0" column="0" colspan="4">
+                 <widget class="QLabel" name="explorerInfoLB">
+                  <property name="text">
+                   <string>Explore the loaded FlyWire v783 graph without changing the LIF model. Type names are accepted only when they resolve to one unique primaryType.</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="explorerRootLB">
+                  <property name="text">
+                   <string>Root ID / primaryType</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1" colspan="3">
+                 <widget class="QLineEdit" name="explorerRootLE">
+                  <property name="toolTip">
+                   <string>Exact FlyWire root ID is authoritative. A primaryType is accepted only if unique.</string>
+                  </property>
+                  <property name="text">
+                   <string>720575940660219265</string>
+                  </property>
+                  <property name="placeholderText">
+                   <string>Exact root ID preferred</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="explorerDirectionLB">
+                  <property name="text">
+                   <string>Direction</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QComboBox" name="explorerDirectionCB">
+                  <item>
+                   <property name="text">
+                    <string>Upstream</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Downstream</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Both</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="2" column="2">
+                 <widget class="QLabel" name="explorerDepthLB">
+                  <property name="text">
+                   <string>Depth</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="3">
+                 <widget class="QSpinBox" name="explorerDepthSB">
+                  <property name="minimum">
+                   <number>1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>6</number>
+                  </property>
+                  <property name="value">
+                   <number>2</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="explorerMinSynLB">
+                  <property name="text">
+                   <string>Min |synapses|</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QSpinBox" name="explorerMinSynSB">
+                  <property name="minimum">
+                   <number>1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>10000</number>
+                  </property>
+                  <property name="value">
+                   <number>10</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="2">
+                 <widget class="QLabel" name="explorerMaxNeuronsLB">
+                  <property name="text">
+                   <string>Max neurons</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="3">
+                 <widget class="QSpinBox" name="explorerMaxNeuronsSB">
+                  <property name="minimum">
+                   <number>1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>1000</number>
+                  </property>
+                  <property name="value">
+                   <number>100</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0" colspan="2">
+                 <widget class="QPushButton" name="explorerRunPB">
+                  <property name="text">
+                   <string>Explore</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="2" colspan="2">
+                 <widget class="QPushButton" name="explorerUseSelectedAsRootPB">
+                  <property name="text">
+                   <string>Selected -&gt; Root</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="0" colspan="4">
+                 <widget class="QLabel" name="explorerStatusLB">
+                  <property name="text">
+                   <string>Load the connectome, then explore from an exact root ID.</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTabWidget" name="circuitTab">
+               <property name="currentIndex">
+                <number>0</number>
+               </property>
+               <widget class="QWidget" name="rc">
+                <attribute name="title">
+                 <string>Ranked candidates</string>
+                </attribute>
+                <layout class="QVBoxLayout" name="verticalLayout">
+                 <item>
+                  <widget class="QGroupBox" name="explorerResultsGB">
+                   <property name="title">
+                    <string>Ranked candidates</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="explorerResultsVL">
+                    <item>
+                     <widget class="QTableWidget" name="explorerResultsTW">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>230</height>
+                       </size>
+                      </property>
+                      <property name="editTriggers">
+                       <set>QAbstractItemView::NoEditTriggers</set>
+                      </property>
+                      <property name="alternatingRowColors">
+                       <bool>true</bool>
+                      </property>
+                      <property name="selectionMode">
+                       <enum>QAbstractItemView::ExtendedSelection</enum>
+                      </property>
+                      <property name="selectionBehavior">
+                       <enum>QAbstractItemView::SelectRows</enum>
+                      </property>
+                      <column>
+                       <property name="text">
+                        <string>Rank</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Type</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Root ID</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Dir</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Depth</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Synapses</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Paths</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Score</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>3D</string>
+                       </property>
+                      </column>
+                     </widget>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="explorerResultActionsHL">
+                      <item>
+                       <widget class="QPushButton" name="explorerAddSelectedPB">
+                        <property name="text">
+                         <string>Add to Working Circuit</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="explorerCompareSelectedPB">
+                        <property name="text">
+                         <string>Compare selected</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+               <widget class="QWidget" name="wc">
+                <attribute name="title">
+                 <string>Working Circuit</string>
+                </attribute>
+                <layout class="QVBoxLayout" name="verticalLayout_2">
+                 <item>
+                  <widget class="QGroupBox" name="workingCircuitGB">
+                   <property name="title">
+                    <string>Working Circuit</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="workingCircuitVL">
+                    <item>
+                     <widget class="QLabel" name="workingCircuitInfoLB">
+                      <property name="text">
+                       <string>Arbitrary connectome neurons can be Watch/Ablate targets. 3D is available only when a local skeleton is loaded.</string>
+                      </property>
+                      <property name="wordWrap">
+                       <bool>true</bool>
+                      </property>
+                     </widget>
+                    </item>
+                    <item>
+                     <widget class="QTableWidget" name="workingCircuitTW">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>150</height>
+                       </size>
+                      </property>
+                      <property name="editTriggers">
+                       <set>QAbstractItemView::NoEditTriggers</set>
+                      </property>
+                      <property name="alternatingRowColors">
+                       <bool>true</bool>
+                      </property>
+                      <property name="selectionMode">
+                       <enum>QAbstractItemView::ExtendedSelection</enum>
+                      </property>
+                      <property name="selectionBehavior">
+                       <enum>QAbstractItemView::SelectRows</enum>
+                      </property>
+                      <column>
+                       <property name="text">
+                        <string>Type</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Root ID</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>3D</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Watch</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Ablate</string>
+                       </property>
+                      </column>
+                     </widget>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="workingCircuitActionsHL">
+                      <item>
+                       <widget class="QPushButton" name="explorerRemoveSelectedPB">
+                        <property name="text">
+                         <string>Remove selected</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="explorerClearCircuitPB">
+                        <property name="text">
+                         <string>Clear</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="discoveryTab">
+            <attribute name="icon">
+             <iconset resource="drosofila.qrc">
+              <normaloff>:/drosofila/images/discovery.png</normaloff>:/drosofila/images/discovery.png</iconset>
+            </attribute>
+            <attribute name="title">
+             <string>Discovery</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="verticalLayout_6">
+             <item>
+              <widget class="QGroupBox" name="discoverySetupGB">
+               <property name="title">
+                <string>Automated Causal Discovery</string>
+               </property>
+               <layout class="QGridLayout" name="discoverySetupGL">
+                <item row="0" column="0" colspan="4">
+                 <widget class="QLabel" name="discoveryInfoLB">
+                  <property name="text">
+                   <string>Screen the top candidates from the latest Circuit Explorer result by controlled single-neuron ablation. Graph score is only a candidate-ranking heuristic; causal rank is based on the simulated effect on TARGET/MN9.</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="discoveryTargetCaptionLB">
+                  <property name="text">
+                   <string>Target</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1" colspan="3">
+                 <widget class="QLabel" name="discoveryTargetLB">
+                  <property name="text">
+                   <string>CB0701 / MN9 [720575940660219265] - fixed validated target</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="discoveryTopCaptionLB">
+                  <property name="text">
+                   <string>Top candidates</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QSpinBox" name="discoveryTopSB">
+                  <property name="toolTip">
+                   <string>Number of candidates taken from the current Explorer ranking. The target itself and duplicate roots are excluded automatically.</string>
+                  </property>
+                  <property name="minimum">
+                   <number>1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>100</number>
+                  </property>
+                  <property name="value">
+                   <number>10</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="2">
+                 <widget class="QPushButton" name="discoveryRunPB">
+                  <property name="toolTip">
+                   <string>Runs controlled Reference-vs-Ablation screening for the selected Explorer candidates. Screen replicates = 1 is the fast historical mode; values greater than 1 perform a multi-seed coarse screen.</string>
+                  </property>
+                  <property name="text">
+                   <string>Screen Explorer</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="3">
+                 <widget class="QPushButton" name="discoveryStopPB">
+                  <property name="toolTip">
+                   <string>Requests a cooperative stop. Screening/validation finish the current comparison; Discovery epistasis finishes the current WT/A OFF/B OFF/A+B OFF replicate.</string>
+                  </property>
+                  <property name="text">
+                   <string>Stop</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="discoverySelectionCaptionLB">
+                  <property name="text">
+                   <string>Selection</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QComboBox" name="discoverySelectionCB">
+                  <property name="toolTip">
+                   <string>Global Top N uses the Explorer ranking directly. Top N per depth preserves strong shallower candidates when a deeper exploration introduces many new neurons.</string>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>Global Top N</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Top N per depth</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="3" column="2">
+                 <widget class="QLabel" name="discoveryScreenReplicatesCaptionLB">
+                  <property name="text">
+                   <string>Screen replicates</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="3">
+                 <widget class="QSpinBox" name="discoveryScreenReplicatesSB">
+                  <property name="toolTip">
+                   <string>Independent seeds used during coarse causal screening. 1 preserves the historical fast single-shot screen; values greater than 1 rank candidates by mean TARGET delta across matched seed blocks.</string>
+                  </property>
+                  <property name="minimum">
+                   <number>1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>100</number>
+                  </property>
+                  <property name="value">
+                   <number>1</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0" colspan="4">
+                 <widget class="QLabel" name="discoveryProtocolLB">
+                  <property name="text">
+                   <string>Protocol values are taken from the Experiment tab. Coarse screening can use multiple independent seeds and ranks by mean absolute TARGET Delta. Statistical validation is a separate independent-seed confirmation stage. Discovery epistasis can apply a CI95/sign-consistency gate before generating WT/A OFF/B OFF/A+B OFF pairs.</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="0">
+                 <widget class="QLabel" name="discoveryReplicatesCaptionLB">
+                  <property name="text">
+                   <string>Validation replicates</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="1">
+                 <widget class="QSpinBox" name="discoveryReplicatesSB">
+                  <property name="toolTip">
+                   <string>Independent protocol replicates for single-ablation validation. Each replicate uses seed = base seed + replicate index and runs a matched Reference/Perturbed comparison.</string>
+                  </property>
+                  <property name="minimum">
+                   <number>2</number>
+                  </property>
+                  <property name="maximum">
+                   <number>1000</number>
+                  </property>
+                  <property name="value">
+                   <number>20</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="2">
+                 <widget class="QPushButton" name="discoveryValidateSelectedPB">
+                  <property name="toolTip">
+                   <string>Statistically validate the selected screening rows using independent consecutive seeds.</string>
+                  </property>
+                  <property name="text">
+                   <string>Validate Selected</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="5" column="3">
+                 <widget class="QPushButton" name="discoveryValidateTopPB">
+                  <property name="toolTip">
+                   <string>Statistically validate the first N valid candidates in causal-rank order.</string>
+                  </property>
+                  <property name="text">
+                   <string>Validate Top N</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="0">
+                 <widget class="QLabel" name="discoveryValidateTopCaptionLB">
+                  <property name="text">
+                   <string>Validate top</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="1">
+                 <widget class="QSpinBox" name="discoveryValidateTopSB">
+                  <property name="toolTip">
+                   <string>Number of top causal hits to validate automatically.</string>
+                  </property>
+                  <property name="minimum">
+                   <number>1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>100</number>
+                  </property>
+                  <property name="value">
+                   <number>3</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="2" colspan="2">
+                 <widget class="QLabel" name="discoveryValidationInfoLB">
+                  <property name="text">
+                   <string>Statistics: mean Delta, STD, SEM, two-sided Student-t 95% CI, sign consistency.</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="0">
+                 <widget class="QLabel" name="discoveryEpistasisTopCaptionLB">
+                  <property name="text">
+                   <string>Epistasis top</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="1">
+                 <widget class="QSpinBox" name="discoveryEpistasisTopSB">
+                  <property name="toolTip">
+                   <string>Number of fully statistically validated hits from the latest validation batch used to generate all unique pairwise epistasis tests. Hits are selected by descending absolute validated mean Delta.</string>
+                  </property>
+                  <property name="minimum">
+                   <number>2</number>
+                  </property>
+                  <property name="maximum">
+                   <number>10</number>
+                  </property>
+                  <property name="value">
+                   <number>3</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="2">
+                 <widget class="QLabel" name="discoveryEpistasisReplicatesCaptionLB">
+                  <property name="text">
+                   <string>Epistasis replicates</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="7" column="3">
+                 <widget class="QSpinBox" name="discoveryEpistasisReplicatesSB">
+                  <property name="toolTip">
+                   <string>Independent-seed replicates for every discovery epistasis pair. Each replicate runs the validated WT / A OFF / B OFF / A+B OFF protocol.</string>
+                  </property>
+                  <property name="minimum">
+                   <number>2</number>
+                  </property>
+                  <property name="maximum">
+                   <number>1000</number>
+                  </property>
+                  <property name="value">
+                   <number>10</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="8" column="0" colspan="2">
+                 <widget class="QCheckBox" name="discoveryRequireCiCB">
+                  <property name="toolTip">
+                   <string>When enabled, automatic Discovery epistasis accepts only validation hits whose two-sided CI95 for mean Delta does not cross zero.</string>
+                  </property>
+                  <property name="text">
+                   <string>Require CI95 excludes zero</string>
+                  </property>
+                  <property name="checked">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="8" column="2">
+                 <widget class="QCheckBox" name="discoveryRequireSignCB">
+                  <property name="toolTip">
+                   <string>Optional additional epistasis gate based on trial-by-trial sign consistency of the validated mean Delta.</string>
+                  </property>
+                  <property name="text">
+                   <string>Require sign consistency</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="8" column="3">
+                 <widget class="QDoubleSpinBox" name="discoveryMinSignDSB">
+                  <property name="toolTip">
+                   <string>Minimum sign consistency required when the sign gate is enabled.</string>
+                  </property>
+                  <property name="suffix">
+                   <string> %</string>
+                  </property>
+                  <property name="decimals">
+                   <number>1</number>
+                  </property>
+                  <property name="minimum">
+                   <double>0.000000000000000</double>
+                  </property>
+                  <property name="maximum">
+                   <double>100.000000000000000</double>
+                  </property>
+                  <property name="value">
+                   <double>70.000000000000000</double>
+                  </property>
+                 </widget>
+                </item>
+                <item row="9" column="0" colspan="2">
+                 <widget class="QPushButton" name="discoveryEpistasisTopPB">
+                  <property name="toolTip">
+                   <string>Builds every unique pair among the top N validation hits that pass the selected statistical gate, then ranks completed pairs by absolute mean interaction Hz.</string>
+                  </property>
+                  <property name="text">
+                   <string>Epistasis Top N</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="9" column="2" colspan="2">
+                 <widget class="QLabel" name="discoveryEpistasisInfoLB">
+                  <property name="text">
+                   <string>Interaction = observed(A+B OFF) - [A OFF + B OFF - WT]. CI95 and sign consistency are computed across independent seeds.</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="10" column="0" colspan="4">
+                 <widget class="QLabel" name="discoveryStatusLB">
+                  <property name="text">
+                   <string>Run Circuit Explorer first, then screen its top candidates.</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QTabWidget" name="discoTab">
+               <property name="currentIndex">
+                <number>0</number>
+               </property>
+               <widget class="QWidget" name="VPI">
+                <attribute name="title">
+                 <string>Validated pairwise interactions</string>
+                </attribute>
+                <layout class="QVBoxLayout" name="verticalLayout_5">
+                 <item>
+                  <widget class="QGroupBox" name="discoveryEpistasisResultsGB">
+                   <property name="title">
+                    <string>Validated pairwise interactions</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="discoveryEpistasisResultsVL">
+                    <item>
+                     <widget class="QTableWidget" name="discoveryEpistasisTW">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>220</height>
+                       </size>
+                      </property>
+                      <property name="editTriggers">
+                       <set>QAbstractItemView::NoEditTriggers</set>
+                      </property>
+                      <property name="alternatingRowColors">
+                       <bool>true</bool>
+                      </property>
+                      <property name="selectionBehavior">
+                       <enum>QAbstractItemView::SelectRows</enum>
+                      </property>
+                      <column>
+                       <property name="text">
+                        <string>Interaction rank</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>A</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>A root</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>B</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>B root</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>N</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>WT Hz</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>A OFF Hz</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>B OFF Hz</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>A+B OFF Hz</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Expected Hz</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Interaction Hz</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>STD</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>SEM</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>CI95 low</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>CI95 high</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Sign %</string>
+                       </property>
+                      </column>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+               <widget class="QWidget" name="vdr">
+                <attribute name="title">
+                 <string>Causal discovery results</string>
+                </attribute>
+                <layout class="QVBoxLayout" name="verticalLayout_4">
+                 <item>
+                  <widget class="QGroupBox" name="discoveryResultsGB">
+                   <property name="title">
+                    <string>Causal discovery results</string>
+                   </property>
+                   <layout class="QVBoxLayout" name="discoveryResultsVL">
+                    <item>
+                     <widget class="QTableWidget" name="discoveryResultsTW">
+                      <property name="minimumSize">
+                       <size>
+                        <width>0</width>
+                        <height>220</height>
+                       </size>
+                      </property>
+                      <property name="editTriggers">
+                       <set>QAbstractItemView::NoEditTriggers</set>
+                      </property>
+                      <property name="alternatingRowColors">
+                       <bool>true</bool>
+                      </property>
+                      <property name="selectionMode">
+                       <enum>QAbstractItemView::ExtendedSelection</enum>
+                      </property>
+                      <property name="selectionBehavior">
+                       <enum>QAbstractItemView::SelectRows</enum>
+                      </property>
+                      <column>
+                       <property name="text">
+                        <string>Causal rank</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Type</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Root ID</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Graph rank</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Graph score</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Screen N</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Screen Ref Hz</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Screen OFF Hz</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Screen mean Delta</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>|mean Delta|</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Screen STD</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Screen sign %</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Validation N</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Validated mean Delta</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>STD</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>SEM</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>CI95 low</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>CI95 high</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>Sign %</string>
+                       </property>
+                      </column>
+                      <column>
+                       <property name="text">
+                        <string>CI gate</string>
+                       </property>
+                      </column>
+                     </widget>
+                    </item>
+                    <item>
+                     <layout class="QHBoxLayout" name="discoveryResultActionsHL">
+                      <item>
+                       <widget class="QPushButton" name="discoveryAddSelectedPB">
+                        <property name="text">
+                         <string>Add selected to Working Circuit</string>
+                        </property>
+                       </widget>
+                      </item>
+                      <item>
+                       <widget class="QPushButton" name="discoveryCompareSelectedPB">
+                        <property name="text">
+                         <string>Compare selected</string>
+                        </property>
+                       </widget>
+                      </item>
+                     </layout>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </widget>
+             </item>
+             <item>
+              <spacer name="discoverySpacer">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="causalSurpriseTab">
+            <attribute name="icon">
+             <iconset resource="drosofila.qrc">
+              <normaloff>:/drosofila/images/casual.png</normaloff>:/drosofila/images/casual.png</iconset>
+            </attribute>
+            <attribute name="title">
+             <string>Causal Surprise</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="causalSurpriseTabLayout">
+             <item>
+              <widget class="QGroupBox" name="causalSurpriseGB">
+               <property name="title">
+                <string>Graph structure vs validated causality</string>
+               </property>
+               <layout class="QVBoxLayout" name="causalSurpriseGBLayout">
+                <item>
+                 <widget class="QLabel" name="causalSurpriseInfoLB">
+                  <property name="text">
+                   <string>Compare Explorer graph importance with statistically validated causal effect. Surprise = causal percentile - structural percentile. Only validation rows passing the archived Discovery gate receive a Surprise rank.</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <layout class="QHBoxLayout" name="causalSurpriseButtonsHL">
+                  <item>
+                   <widget class="QPushButton" name="causalSurpriseAnalyzePB">
+                    <property name="toolTip">
+                     <string>Analyze the current Explorer and statistically validated Discovery state. No LIF simulation is run.</string>
+                    </property>
+                    <property name="text">
+                     <string>Analyze</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="causalSurpriseReportPB">
+                    <property name="toolTip">
+                     <string>Open the last Causal Surprise HTML report generated in work/reports.</string>
+                    </property>
+                    <property name="text">
+                     <string>Open report</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <spacer name="causalSurpriseButtonsSpacer">
+                    <property name="orientation">
+                     <enum>Qt::Horizontal</enum>
+                    </property>
+                    <property name="sizeHint" stdset="0">
+                     <size>
+                      <width>40</width>
+                      <height>20</height>
+                     </size>
+                    </property>
+                   </spacer>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QLabel" name="causalSurpriseStatusLB">
+                  <property name="text">
+                   <string>Run Explorer + Discovery validation, or load a .dro containing them, then press Analyze.</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                  <property name="textInteractionFlags">
+                   <set>Qt::TextSelectableByMouse</set>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QTableWidget" name="causalSurpriseTW">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>300</height>
+                   </size>
+                  </property>
+                  <property name="editTriggers">
+                   <set>QAbstractItemView::NoEditTriggers</set>
+                  </property>
+                  <property name="alternatingRowColors">
+                   <bool>true</bool>
+                  </property>
+                  <property name="selectionMode">
+                   <enum>QAbstractItemView::SingleSelection</enum>
+                  </property>
+                  <property name="selectionBehavior">
+                   <enum>QAbstractItemView::SelectRows</enum>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="experimentTab">
+            <attribute name="icon">
+             <iconset resource="drosofila.qrc">
+              <normaloff>:/drosofila/images/experiment.png</normaloff>:/drosofila/images/experiment.png</iconset>
+            </attribute>
+            <attribute name="title">
+             <string>Experiment</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="experimentTabLayout">
+             <item>
+              <widget class="QGroupBox" name="simulationGB">
+               <property name="title">
+                <string>Experiment</string>
+               </property>
+               <layout class="QGridLayout" name="simulationLayout">
+                <item row="0" column="0" colspan="2">
+                 <widget class="QLabel" name="simulationProtocolLB">
+                  <property name="text">
+                   <string>Sugar sustained - validated LIF preset</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="durationLB">
+                  <property name="text">
+                   <string>Duration (ms)</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QDoubleSpinBox" name="durationSB">
+                  <property name="decimals">
+                   <number>1</number>
+                  </property>
+                  <property name="minimum">
+                   <double>10.000000000000000</double>
+                  </property>
+                  <property name="maximum">
+                   <double>5000.000000000000000</double>
+                  </property>
+                  <property name="singleStep">
+                   <double>100.000000000000000</double>
+                  </property>
+                  <property name="value">
+                   <double>1000.000000000000000</double>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="sugarRateLB">
+                  <property name="text">
+                   <string>Sugar rate (Hz)</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QDoubleSpinBox" name="sugarRateSB">
+                  <property name="decimals">
+                   <number>1</number>
+                  </property>
+                  <property name="minimum">
+                   <double>0.000000000000000</double>
+                  </property>
+                  <property name="maximum">
+                   <double>1000.000000000000000</double>
+                  </property>
+                  <property name="singleStep">
+                   <double>10.000000000000000</double>
+                  </property>
+                  <property name="value">
+                   <double>100.000000000000000</double>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="0">
+                 <widget class="QLabel" name="trialsLB">
+                  <property name="text">
+                   <string>Trials</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QSpinBox" name="trialsSB">
+                  <property name="toolTip">
+                   <string>1 trial is fast for interactive use. Use 5 or 20 trials for comparison with validated laboratory runs.</string>
+                  </property>
+                  <property name="minimum">
+                   <number>1</number>
+                  </property>
+                  <property name="maximum">
+                   <number>20</number>
+                  </property>
+                  <property name="value">
+                   <number>1</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="0">
+                 <widget class="QLabel" name="seedLB">
+                  <property name="text">
+                   <string>Poisson seed</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="4" column="1">
+                 <widget class="QSpinBox" name="seedSB">
+                  <property name="minimum">
+                   <number>0</number>
+                  </property>
+                  <property name="maximum">
+                   <number>2147483647</number>
+                  </property>
+                  <property name="value">
+                   <number>12345</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="6" column="0" colspan="2">
+                 <layout class="QHBoxLayout" name="simulationButtonsLayout">
+                  <item>
+                   <widget class="QPushButton" name="runSimulationPB">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="text">
+                     <string>Run experiment</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="playSimulationPB">
+                    <property name="enabled">
+                     <bool>false</bool>
+                    </property>
+                    <property name="text">
+                     <string>Play result</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item row="5" column="0" colspan="2">
+                 <widget class="QGroupBox" name="experimentSelectionGB">
+                  <property name="title">
+                   <string>Causal circuit configuration</string>
+                  </property>
+                  <layout class="QGridLayout" name="experimentSelectionLayout">
+                   <item row="0" column="0">
+                    <widget class="QLabel" name="experimentNeuronHeaderLB">
+                     <property name="text">
+                      <string>Neuron</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="1">
+                    <widget class="QLabel" name="experimentWatchHeaderLB">
+                     <property name="text">
+                      <string>Watch</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="0" column="2">
+                    <widget class="QLabel" name="experimentAblateHeaderLB">
+                     <property name="text">
+                      <string>Ablate</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="0">
+                    <widget class="QLabel" name="experimentDNge031LB">
+                     <property name="text">
+                      <string>DNge031</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="1">
+                    <widget class="QCheckBox" name="watchDNge031CB">
+                     <property name="toolTip">
+                      <string>Record temporal activity for this neuron.</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="1" column="2">
+                    <widget class="QCheckBox" name="ablateDNge031CB">
+                     <property name="toolTip">
+                      <string>Electrically silence this neuron in the LIF experiment.</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="checked">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="0">
+                    <widget class="QLabel" name="experimentCB0393LB">
+                     <property name="text">
+                      <string>CB0393</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="1">
+                    <widget class="QCheckBox" name="watchCB0393CB">
+                     <property name="toolTip">
+                      <string>Record temporal activity for this neuron.</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="2" column="2">
+                    <widget class="QCheckBox" name="ablateCB0393CB">
+                     <property name="toolTip">
+                      <string>Electrically silence this neuron in the LIF experiment.</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="checked">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="0">
+                    <widget class="QLabel" name="experimentCB0177LB">
+                     <property name="text">
+                      <string>CB0177</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="1">
+                    <widget class="QCheckBox" name="watchCB0177CB">
+                     <property name="toolTip">
+                      <string>Record temporal activity for this neuron.</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="3" column="2">
+                    <widget class="QCheckBox" name="ablateCB0177CB">
+                     <property name="toolTip">
+                      <string>Electrically silence this neuron in the LIF experiment.</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="checked">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="0">
+                    <widget class="QLabel" name="experimentCB0248LB">
+                     <property name="text">
+                      <string>CB0248</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="1">
+                    <widget class="QCheckBox" name="watchCB0248CB">
+                     <property name="toolTip">
+                      <string>Record temporal activity for this neuron.</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="4" column="2">
+                    <widget class="QCheckBox" name="ablateCB0248CB">
+                     <property name="toolTip">
+                      <string>Electrically silence this neuron in the LIF experiment.</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="checked">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="0">
+                    <widget class="QLabel" name="experimentCB0366LB">
+                     <property name="text">
+                      <string>CB0366</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="1">
+                    <widget class="QCheckBox" name="watchCB0366CB">
+                     <property name="toolTip">
+                      <string>Record temporal activity for this neuron.</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="5" column="2">
+                    <widget class="QCheckBox" name="ablateCB0366CB">
+                     <property name="toolTip">
+                      <string>Electrically silence this neuron in the LIF experiment.</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="checked">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="0">
+                    <widget class="QLabel" name="experimentDNge062LB">
+                     <property name="text">
+                      <string>DNge062</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="1">
+                    <widget class="QCheckBox" name="watchDNge062CB">
+                     <property name="toolTip">
+                      <string>Record temporal activity for this neuron.</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="6" column="2">
+                    <widget class="QCheckBox" name="ablateDNge062CB">
+                     <property name="toolTip">
+                      <string>Electrically silence this neuron in the LIF experiment.</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="checked">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="0">
+                    <widget class="QLabel" name="experimentCB0701LB">
+                     <property name="text">
+                      <string>CB0701 / TARGET-MN9</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="1">
+                    <widget class="QCheckBox" name="watchCB0701CB">
+                     <property name="toolTip">
+                      <string>Record temporal activity for this neuron.</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="checked">
+                      <bool>true</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="7" column="2">
+                    <widget class="QCheckBox" name="ablateCB0701CB">
+                     <property name="toolTip">
+                      <string>Electrically silence this neuron in the LIF experiment.</string>
+                     </property>
+                     <property name="text">
+                      <string/>
+                     </property>
+                     <property name="checked">
+                      <bool>false</bool>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="8" column="0" colspan="2">
+                    <widget class="QLabel" name="experimentSelectionLB">
+                     <property name="text">
+                      <string>Watch 7/7 | Ablated 0/7</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item row="8" column="2">
+                    <widget class="QPushButton" name="clearAblationsPB">
+                     <property name="text">
+                      <string>Clear ablations</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <spacer name="experimentTabSpacer">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="compareTab">
+            <attribute name="icon">
+             <iconset resource="drosofila.qrc">
+              <normaloff>:/drosofila/images/compare.png</normaloff>:/drosofila/images/compare.png</iconset>
+            </attribute>
+            <attribute name="title">
+             <string>Compare</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="compareTabLayout">
+             <item>
+              <widget class="QGroupBox" name="comparisonGB">
+               <property name="title">
+                <string>Causal comparison</string>
+               </property>
+               <layout class="QGridLayout" name="comparisonLayout">
+                <item row="0" column="0" colspan="2">
+                 <widget class="QLabel" name="comparisonInfoLB">
+                  <property name="text">
+                   <string>Controlled pair: Reference has no ablations; Perturbed uses one selected ablation. Duration, Sugar, trials and seed are taken from the Experiment tab.</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="comparisonNeuronLB">
+                  <property name="text">
+                   <string>Perturbation</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QComboBox" name="comparisonNeuronCB">
+                  <property name="toolTip">
+                   <string>Neuron to ablate only in the Perturbed run. Reference and Perturbed use identical random seed and LIF parameters.</string>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>DNge031</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0393</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0177</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0248</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0366</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>DNge062</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0701 / TARGET-MN9</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="6" column="0" colspan="2">
+                 <widget class="QLabel" name="comparisonOnsetRuleLB">
+                  <property name="text">
+                   <string>Sustained onset rule: |Delta TARGET rate| &gt;= 20 Hz for 5 consecutive 10 ms bins (50 ms).</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QPushButton" name="runComparisonPB">
+                  <property name="text">
+                   <string>Run controlled comparison</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="comparisonPlaybackGB">
+               <property name="title">
+                <string>Comparison playback</string>
+               </property>
+               <layout class="QGridLayout" name="comparisonPlaybackLayout">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="comparisonPlaybackModeLB">
+                  <property name="text">
+                   <string>3D mode</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QComboBox" name="comparisonPlaybackModeCB">
+                  <property name="toolTip">
+                   <string>Reference and Perturbed show absolute LIF activity. Difference colors neurons by signed Perturbed minus Reference activity.</string>
+                  </property>
+                  <property name="currentIndex">
+                   <number>2</number>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>Reference</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Perturbed</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Difference</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="2" column="0" colspan="2">
+                 <widget class="QLabel" name="comparisonColorLegendLB">
+                  <property name="text">
+                   <string>Difference 3D: red = increased activity, blue = decreased activity, dark gray = ablated neuron.</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QPushButton" name="playComparisonPB">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="text">
+                   <string>Play comparison</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <spacer name="compareTabSpacer">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="epistasisTab">
+            <attribute name="icon">
+             <iconset resource="drosofila.qrc">
+              <normaloff>:/drosofila/images/gene.png</normaloff>:/drosofila/images/gene.png</iconset>
+            </attribute>
+            <attribute name="title">
+             <string>Epistasis</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="epistasisTabLayout">
+             <item>
+              <widget class="QGroupBox" name="epistasisPairGB">
+               <property name="title">
+                <string>Pairwise epistasis</string>
+               </property>
+               <layout class="QGridLayout" name="epistasisPairLayout">
+                <item row="0" column="0" colspan="2">
+                 <widget class="QLabel" name="epistasisInfoLB">
+                  <property name="text">
+                   <string>Four controlled conditions use identical duration, Sugar, trials and seed: WT, A OFF, B OFF and A+B OFF. Existing Experiment-tab ablations are ignored.</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="epistasisNeuronALB">
+                  <property name="text">
+                   <string>Neuron A</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QComboBox" name="epistasisNeuronACB">
+                  <item>
+                   <property name="text">
+                    <string>DNge031</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0393</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0177</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0248</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0366</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>DNge062</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0701 / TARGET-MN9</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="epistasisNeuronBLB">
+                  <property name="text">
+                   <string>Neuron B</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QComboBox" name="epistasisNeuronBCB">
+                  <property name="currentIndex">
+                   <number>1</number>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>DNge031</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0393</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0177</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0248</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0366</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>DNge062</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0701 / TARGET-MN9</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="7" column="0" colspan="2">
+                 <widget class="QLabel" name="epistasisRuleLB">
+                  <property name="text">
+                   <string>Interaction = observed(A+B OFF) - [A OFF + B OFF - WT]. Positive/negative values are departures from the additive null model, not statistical significance.</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="3" column="1">
+                 <widget class="QPushButton" name="runEpistasisPB">
+                  <property name="toolTip">
+                   <string>Run WT, A OFF, B OFF and A+B OFF with identical common parameters.</string>
+                  </property>
+                  <property name="text">
+                   <string>Run epistasis pair</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="epistasisMatrixGB">
+               <property name="title">
+                <string>Interaction matrix</string>
+               </property>
+               <layout class="QVBoxLayout" name="epistasisMatrixLayout">
+                <item>
+                 <widget class="QLabel" name="epistasisMatrixInfoLB">
+                  <property name="text">
+                   <string>Interaction matrix: 0/21 pairs. Cells are Hz; red positive, blue negative; color saturates at |50 Hz|.</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QTableWidget" name="epistasisMatrixTW">
+                  <property name="editTriggers">
+                   <set>QAbstractItemView::NoEditTriggers</set>
+                  </property>
+                  <property name="selectionMode">
+                   <enum>QAbstractItemView::SingleSelection</enum>
+                  </property>
+                  <property name="rowCount">
+                   <number>7</number>
+                  </property>
+                  <property name="columnCount">
+                   <number>7</number>
+                  </property>
+                  <row>
+                   <property name="text">
+                    <string>DNge031</string>
+                   </property>
+                  </row>
+                  <row>
+                   <property name="text">
+                    <string>CB0393</string>
+                   </property>
+                  </row>
+                  <row>
+                   <property name="text">
+                    <string>CB0177</string>
+                   </property>
+                  </row>
+                  <row>
+                   <property name="text">
+                    <string>CB0248</string>
+                   </property>
+                  </row>
+                  <row>
+                   <property name="text">
+                    <string>CB0366</string>
+                   </property>
+                  </row>
+                  <row>
+                   <property name="text">
+                    <string>DNge062</string>
+                   </property>
+                  </row>
+                  <row>
+                   <property name="text">
+                    <string>CB0701</string>
+                   </property>
+                  </row>
+                  <column>
+                   <property name="text">
+                    <string>DNge031</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>CB0393</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>CB0177</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>CB0248</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>CB0366</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>DNge062</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>CB0701</string>
+                   </property>
+                  </column>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="clearEpistasisMatrixPB">
+                  <property name="text">
+                   <string>Clear matrix</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="statisticsTab">
+            <attribute name="icon">
+             <iconset resource="drosofila.qrc">
+              <normaloff>:/drosofila/images/stat.png</normaloff>:/drosofila/images/stat.png</iconset>
+            </attribute>
+            <attribute name="title">
+             <string>Statistics</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="statisticsTabLayout">
+             <item>
+              <widget class="QGroupBox" name="statisticsValidationGB">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="title">
+                <string>Statistical epistasis validation</string>
+               </property>
+               <layout class="QGridLayout" name="statisticsValidationGL">
+                <item row="0" column="0" colspan="4">
+                 <widget class="QLabel" name="statisticsInfoLB">
+                  <property name="text">
+                   <string>Replicates repeat the complete WT / A OFF / B OFF / A+B OFF protocol with independent consecutive seeds. DRO.TRIALS remains the number of LIF trials inside each condition.</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="statisticsNeuronALB">
+                  <property name="text">
+                   <string>Neuron A</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QComboBox" name="statisticsNeuronACB">
+                  <item>
+                   <property name="text">
+                    <string>DNge031</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0393</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0177</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0248</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0366</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>DNge062</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0701 / TARGET-MN9</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QLabel" name="statisticsNeuronBLB">
+                  <property name="text">
+                   <string>Neuron B</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="3">
+                 <widget class="QComboBox" name="statisticsNeuronBCB">
+                  <property name="currentIndex">
+                   <number>1</number>
+                  </property>
+                  <item>
+                   <property name="text">
+                    <string>DNge031</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0393</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0177</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0248</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0366</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>DNge062</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>CB0701 / TARGET-MN9</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="2" column="0">
+                 <widget class="QLabel" name="statisticsReplicatesLB">
+                  <property name="text">
+                   <string>Replicates</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="1">
+                 <widget class="QSpinBox" name="statisticsReplicatesSB">
+                  <property name="toolTip">
+                   <string>Independent protocol repetitions. Seeds are baseSeed, baseSeed+1, ...</string>
+                  </property>
+                  <property name="minimum">
+                   <number>2</number>
+                  </property>
+                  <property name="maximum">
+                   <number>1000</number>
+                  </property>
+                  <property name="value">
+                   <number>10</number>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="2">
+                 <widget class="QPushButton" name="runStatisticsPB">
+                  <property name="text">
+                   <string>Run validation</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="3">
+                 <widget class="QPushButton" name="stopStatisticsPB">
+                  <property name="enabled">
+                   <bool>false</bool>
+                  </property>
+                  <property name="text">
+                   <string>Stop after current replicate</string>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="statisticsRankingGB">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="title">
+                <string>Validated epistasis ranking</string>
+               </property>
+               <layout class="QVBoxLayout" name="statisticsRankingVL">
+                <item>
+                 <layout class="QHBoxLayout" name="statisticsRankingHL">
+                  <item>
+                   <widget class="QLabel" name="statisticsRankByLB">
+                    <property name="text">
+                     <string>Rank by</string>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QComboBox" name="statisticsRankMetricCB">
+                    <item>
+                     <property name="text">
+                      <string>|Mean interaction|</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>Sign consistency</string>
+                     </property>
+                    </item>
+                    <item>
+                     <property name="text">
+                      <string>CI width</string>
+                     </property>
+                    </item>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="clearStatisticsPB">
+                    <property name="text">
+                     <string>Clear statistics</string>
+                    </property>
+                   </widget>
+                  </item>
+                 </layout>
+                </item>
+                <item>
+                 <widget class="QTableWidget" name="statisticsRankingTW">
+                  <property name="editTriggers">
+                   <set>QAbstractItemView::NoEditTriggers</set>
+                  </property>
+                  <property name="selectionBehavior">
+                   <enum>QAbstractItemView::SelectRows</enum>
+                  </property>
+                  <property name="rowCount">
+                   <number>0</number>
+                  </property>
+                  <property name="columnCount">
+                   <number>8</number>
+                  </property>
+                  <column>
+                   <property name="text">
+                    <string>Rank</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Pair</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Mean Hz</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Std Hz</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>95% CI low</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>95% CI high</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>Consistency</string>
+                   </property>
+                  </column>
+                  <column>
+                   <property name="text">
+                    <string>N</string>
+                   </property>
+                  </column>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="replayTab">
+            <attribute name="icon">
+             <iconset resource="drosofila.qrc">
+              <normaloff>:/drosofila/images/replay.png</normaloff>:/drosofila/images/replay.png</iconset>
+            </attribute>
+            <attribute name="title">
+             <string>Replay</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="replayTabLayout">
+             <property name="leftMargin">
+              <number>6</number>
+             </property>
+             <property name="topMargin">
+              <number>6</number>
+             </property>
+             <property name="rightMargin">
+              <number>6</number>
+             </property>
+             <property name="bottomMargin">
+              <number>6</number>
+             </property>
+             <item>
+              <widget class="QGroupBox" name="archiveFileGB">
+               <property name="title">
+                <string>Experiment archive (.dro)</string>
+               </property>
+               <layout class="QGridLayout" name="archiveFileGL">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="archivePathTitleLB">
+                  <property name="text">
+                   <string>Archive</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1" colspan="3">
+                 <widget class="QLineEdit" name="archivePathLE">
+                  <property name="readOnly">
+                   <bool>true</bool>
+                  </property>
+                  <property name="placeholderText">
+                   <string>No archive loaded/saved</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QPushButton" name="archiveOpenPB">
+                  <property name="text">
+                   <string>Open .dro...</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QPushButton" name="archiveSavePB">
+                  <property name="text">
+                   <string>Save current...</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="2">
+                 <widget class="QPushButton" name="archiveExportPB">
+                  <property name="text">
+                   <string>Export CSV...</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0" colspan="4">
+                 <widget class="QLabel" name="archiveStatusLB">
+                  <property name="text">
+                   <string>No archive loaded. Results produced by Experiment / Compare / Epistasis can be saved.</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="archiveReplayGB">
+               <property name="title">
+                <string>Replay source</string>
+               </property>
+               <layout class="QGridLayout" name="archiveReplayGL">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="archiveReplayModeLB">
+                  <property name="text">
+                   <string>Mode</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QComboBox" name="archiveReplayModeCB">
+                  <item>
+                   <property name="text">
+                    <string>Single / Discovery reference</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Comparison - Reference</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Comparison - Perturbed</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Comparison - Difference</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Epistasis - WT</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Epistasis - A OFF</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Epistasis - B OFF</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Epistasis - A+B OFF</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QPushButton" name="archivePlayPB">
+                  <property name="text">
+                   <string>Replay</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0" colspan="3">
+                 <widget class="QLabel" name="archiveReplayInfoLB">
+                  <property name="text">
+                   <string>Load an archive or save current results. Replay does not run the LIF engine.</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <widget class="QGroupBox" name="archiveReproduceGB">
+               <property name="title">
+                <string>Reproduce archived protocol</string>
+               </property>
+               <layout class="QGridLayout" name="archiveReproduceGL">
+                <item row="0" column="0">
+                 <widget class="QPushButton" name="archivePreflightPB">
+                  <property name="toolTip">
+                   <string>Compare the loaded archive scientific environment with the current connectome, stimulus and validated LIF model.</string>
+                  </property>
+                  <property name="text">
+                   <string>Preflight</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QPushButton" name="archiveReproducePB">
+                  <property name="toolTip">
+                   <string>Re-run Explorer, screening, validation and epistasis from the archived scientific provenance.</string>
+                  </property>
+                  <property name="text">
+                   <string>Reproduce</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="2">
+                 <widget class="QPushButton" name="archiveReproduceStopPB">
+                  <property name="toolTip">
+                   <string>Request a safe stop after the current reproduction replicate.</string>
+                  </property>
+                  <property name="text">
+                   <string>Stop</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="3">
+                 <widget class="QPushButton" name="archiveReproduceReportPB">
+                  <property name="toolTip">
+                   <string>Open the last HTML reproduction report.</string>
+                  </property>
+                  <property name="text">
+                   <string>Open report</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0" colspan="4">
+                 <widget class="QLabel" name="archiveReproduceStatusLB">
+                  <property name="text">
+                   <string>Load a .dro v3 Discovery archive, then run Preflight.</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0" colspan="4">
+                 <widget class="QTableWidget" name="archiveReproduceTW">
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>190</height>
+                   </size>
+                  </property>
+                  <property name="editTriggers">
+                   <set>QAbstractItemView::NoEditTriggers</set>
+                  </property>
+                  <property name="alternatingRowColors">
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="scriptTab">
+            <attribute name="icon">
+             <iconset resource="drosofila.qrc">
+              <normaloff>:/drosofila/images/script.png</normaloff>:/drosofila/images/script.png</iconset>
+            </attribute>
+            <attribute name="title">
+             <string>Script</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="scriptTabLayout">
+             <item>
+              <widget class="QLabel" name="scriptEngineInfoLB">
+               <property name="toolTip">
+                <string>Public CvBasicEngine facade linked through cvBasicEngine.lib.</string>
+               </property>
+               <property name="text">
+                <string>cvBasicEngine</string>
+               </property>
+               <property name="textInteractionFlags">
+                <set>Qt::TextSelectableByMouse</set>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="scriptFileButtonsLayout">
+               <item>
+                <widget class="QPushButton" name="scriptOpenPB">
+                 <property name="toolTip">
+                  <string>Open a cvBasic/drosofilaLive script from disk.</string>
+                 </property>
+                 <property name="text">
+                  <string>Open</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="scriptSavePB">
+                 <property name="toolTip">
+                  <string>Save the current script text.</string>
+                 </property>
+                 <property name="text">
+                  <string>Save</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="scriptCheckPB">
+                 <property name="toolTip">
+                  <string>Check cvBasic syntax using the native DRO.* host commands registered in CvBasicEngine.</string>
+                 </property>
+                 <property name="text">
+                  <string>Check</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <widget class="QPlainTextEdit" name="scriptEditorTE">
+               <property name="toolTip">
+                <string>cvBasic source. drosofilaLive commands use the reserved DRO.* namespace and accept normal cvBasic expressions, variables and control flow.</string>
+               </property>
+               <property name="lineWrapMode">
+                <enum>QPlainTextEdit::NoWrap</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLabel" name="scriptCommandsLB">
+               <property name="text">
+                <string>DRO.*: DURATION, SUGAR, TRIALS, SEED, WATCH/UNWATCH, CLEARWATCH, ABLATE, CLEARABLATIONS, RUN, COMPARE, EPISTASIS, EPISTASISALL, BATCHBEGIN/BATCHEND, SAVE, LOAD, EXPORTCSV, REPLAY, PLAY*.</string>
+               </property>
+               <property name="wordWrap">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QHBoxLayout" name="scriptRunButtonsLayout">
+               <item>
+                <widget class="QPushButton" name="scriptRunPB">
+                 <property name="toolTip">
+                  <string>Execute cvBasic with native DRO.* commands, then process the resulting experiment queue through ExperimentController.</string>
+                 </property>
+                 <property name="text">
+                  <string>Run script</string>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QPushButton" name="scriptStopPB">
+                 <property name="enabled">
+                  <bool>false</bool>
+                 </property>
+                 <property name="toolTip">
+                  <string>Cancel remaining script commands. The current DRO.RUN, DRO.COMPARE or DRO.EPISTASIS LIF operation is allowed to finish so partial scientific results are never published.</string>
+                 </property>
+                 <property name="text">
+                  <string>Stop</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </widget>
+           <widget class="QWidget" name="inspectTab">
+            <attribute name="icon">
+             <iconset resource="drosofila.qrc">
+              <normaloff>:/drosofila/images/inspection.png</normaloff>:/drosofila/images/inspection.png</iconset>
+            </attribute>
+            <attribute name="title">
+             <string>Inspect</string>
+            </attribute>
+            <layout class="QVBoxLayout" name="inspectTabLayout">
+             <item>
+              <widget class="QGroupBox" name="neuronGB">
+               <property name="title">
+                <string>Neuron inspector</string>
+               </property>
+               <layout class="QGridLayout" name="neuronLayout">
+                <item row="0" column="0">
+                 <widget class="QLabel" name="neuronLB">
+                  <property name="text">
+                   <string>Neuron</string>
+                  </property>
+                  <property name="alignment">
+                   <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1">
+                 <widget class="QComboBox" name="neuronCB"/>
+                </item>
+                <item row="1" column="0">
+                 <widget class="QLabel" name="neuronIdLB">
+                  <property name="text">
+                   <string>Root ID</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="1">
+                 <widget class="QLabel" name="neuronIdValueLB">
+                  <property name="text">
+                   <string>-</string>
+                  </property>
+                  <property name="textInteractionFlags">
+                   <set>Qt::TextSelectableByMouse</set>
+                  </property>
+                 </widget>
+                </item>
+                <item row="2" column="0" colspan="2">
+                 <widget class="QLabel" name="connectomeNeuronLB">
+                  <property name="toolTip">
+                   <string>Selected scene neuron matched by exact FlyWire root ID against the loaded connectome.</string>
+                  </property>
+                  <property name="text">
+                   <string>Connectome: not loaded</string>
+                  </property>
+                  <property name="wordWrap">
+                   <bool>true</bool>
+                  </property>
+                  <property name="textInteractionFlags">
+                   <set>Qt::TextSelectableByMouse</set>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </widget>
+             </item>
+             <item>
+              <spacer name="inspectTabSpacer">
+               <property name="orientation">
+                <enum>Qt::Vertical</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>20</width>
+                 <height>40</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+            </layout>
+           </widget>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSplitter" name="visualSplitter">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <widget class="QWidget" name="plot3DHost" native="true">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>1</horstretch>
+           <verstretch>1</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>420</height>
+          </size>
+         </property>
+        </widget>
+        <widget class="QWidget" name="plotsPanel">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>250</height>
+          </size>
+         </property>
+         <layout class="QVBoxLayout" name="plotsPanelLayout">
+          <property name="leftMargin">
+           <number>0</number>
+          </property>
+          <property name="topMargin">
+           <number>0</number>
+          </property>
+          <property name="rightMargin">
+           <number>0</number>
+          </property>
+          <property name="bottomMargin">
+           <number>0</number>
+          </property>
+          <item>
+           <widget class="QTabWidget" name="plotTabs">
+            <property name="currentIndex">
+             <number>0</number>
+            </property>
+            <widget class="QWidget" name="timelinePlotTab">
+             <attribute name="icon">
+              <iconset resource="drosofila.qrc">
+               <normaloff>:/drosofila/images/clock.png</normaloff>:/drosofila/images/clock.png</iconset>
+             </attribute>
+             <attribute name="title">
+              <string>Timeline</string>
+             </attribute>
+             <layout class="QVBoxLayout" name="timelinePlotTabLayout">
+              <property name="leftMargin">
+               <number>6</number>
+              </property>
+              <property name="topMargin">
+               <number>6</number>
+              </property>
+              <property name="rightMargin">
+               <number>6</number>
+              </property>
+              <property name="bottomMargin">
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QLabel" name="timelineInfoLB">
+                <property name="text">
+                 <string>Timeline: run an experiment to display firing-rate bins.</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QwtPlot" name="timelinePlot">
+                <property name="sizePolicy">
+                 <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                  <horstretch>1</horstretch>
+                  <verstretch>1</verstretch>
+                 </sizepolicy>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="causalSurprisePlotTab">
+             <attribute name="icon">
+              <iconset resource="drosofila.qrc">
+               <normaloff>:/drosofila/images/casual.png</normaloff>:/drosofila/images/casual.png</iconset>
+             </attribute>
+             <attribute name="title">
+              <string>Causal Surprise</string>
+             </attribute>
+             <layout class="QVBoxLayout" name="causalSurprisePlotTabLayout">
+              <property name="leftMargin">
+               <number>6</number>
+              </property>
+              <property name="topMargin">
+               <number>6</number>
+              </property>
+              <property name="rightMargin">
+               <number>6</number>
+              </property>
+              <property name="bottomMargin">
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QwtPlot" name="causalSurprisePlot">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>260</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="causalSurprisePlotLegendLB">
+                <property name="text">
+                 <string>Orange = causal surprise | Blue = expected strong | Violet = structural overestimate | Gray = expected weak | X = not gate-passed. Hover=readout | left-drag/wheel=zoom | middle=pan | click near a point=select neuron.</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="statisticsPlotTab">
+             <attribute name="icon">
+              <iconset resource="drosofila.qrc">
+               <normaloff>:/drosofila/images/stat.png</normaloff>:/drosofila/images/stat.png</iconset>
+             </attribute>
+             <attribute name="title">
+              <string>Statistics</string>
+             </attribute>
+             <layout class="QVBoxLayout" name="statisticsPlotTabLayout">
+              <property name="leftMargin">
+               <number>6</number>
+              </property>
+              <property name="topMargin">
+               <number>6</number>
+              </property>
+              <property name="rightMargin">
+               <number>6</number>
+              </property>
+              <property name="bottomMargin">
+               <number>6</number>
+              </property>
+              <item>
+               <widget class="QwtPlot" name="statisticsPlot">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>220</height>
+                 </size>
+                </property>
+               </widget>
+              </item>
+              <item>
+               <widget class="QLabel" name="statisticsPlotLegendLB">
+                <property name="text">
+                 <string>Blue = interaction for each independent replicate; red = mean; dashed green = 95% Student-t confidence interval; gray = additive-null zero.</string>
+                </property>
+                <property name="wordWrap">
+                 <bool>true</bool>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QFrame" name="activityStatusFrame">
+      <property name="toolTip">
+       <string>Global activity status. Overall tracks the complete operation or cvBasic queue; Detail tracks the current LIF trial/phase.</string>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
+      <layout class="QVBoxLayout" name="activityStatusVL">
+       <property name="spacing">
+        <number>3</number>
+       </property>
+       <property name="leftMargin">
+        <number>8</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>8</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
+       <item>
+        <layout class="QHBoxLayout" name="activityHeaderHL">
+         <item>
+          <widget class="QLabel" name="activityTitleLB">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Activity: Ready</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="activityHeaderSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QLabel" name="activityStateLB">
+           <property name="text">
+            <string>No active operation.</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+       <item>
+        <layout class="QGridLayout" name="activityProgressGL">
+         <item row="0" column="0">
+          <widget class="QLabel" name="activityOverallCaptionLB">
+           <property name="minimumSize">
+            <size>
+             <width>55</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Overall</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QProgressBar" name="activityOverallPB">
+           <property name="value">
+            <number>0</number>
+           </property>
+           <property name="format">
+            <string>%p%</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="activityOverallStatusLB">
+           <property name="minimumSize">
+            <size>
+             <width>330</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Ready</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="activityDetailCaptionLB">
+           <property name="text">
+            <string>Detail</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QProgressBar" name="activityDetailPB">
+           <property name="value">
+            <number>0</number>
+           </property>
+           <property name="format">
+            <string>%p%</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="activityDetailStatusLB">
+           <property name="text">
+            <string>-</string>
+           </property>
+           <property name="wordWrap">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QDockWidget" name="circuitGraphDockWidget">
+   <property name="minimumSize">
+    <size>
+     <width>328</width>
+     <height>318</height>
+    </size>
+   </property>
+   <property name="windowIcon">
+    <iconset resource="drosofila.qrc">
+     <normaloff>:/drosofila/images/circuit.png</normaloff>:/drosofila/images/circuit.png</iconset>
+   </property>
+   <property name="features">
+    <set>QDockWidget::AllDockWidgetFeatures</set>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::LeftDockWidgetArea|Qt::RightDockWidgetArea</set>
+   </property>
+   <property name="windowTitle">
+    <string>Circuit Graph</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="circuitGraphDockContents">
+    <layout class="QVBoxLayout" name="circuitGraphDockLayout">
+     <property name="leftMargin">
+      <number>4</number>
+     </property>
+     <property name="topMargin">
+      <number>4</number>
+     </property>
+     <property name="rightMargin">
+      <number>4</number>
+     </property>
+     <property name="bottomMargin">
+      <number>4</number>
+     </property>
+     <item>
+      <widget class="QLabel" name="explorerGraphInfoLB">
+       <property name="text">
+        <string>Circuit graph: run Circuit Explorer. Edge labels are absolute synapse counts for stronger displayed links.</string>
+       </property>
+       <property name="wordWrap">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="explorerGraphZoomHL">
+       <property name="spacing">
+        <number>4</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="explorerGraphZoomOutPB">
+         <property name="toolTip">
+          <string>Zoom out. Mouse wheel also zooms around the pointer.</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="drosofila.qrc">
+           <normaloff>:/drosofila/images/minusz.png</normaloff>:/drosofila/images/minusz.png</iconset>
+         </property>
+         <property name="shortcut">
+          <string>Ctrl+-</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="explorerGraphZoom100PB">
+         <property name="toolTip">
+          <string>Reset the circuit graph to 100% (1 scene unit = 1 view pixel).</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="drosofila.qrc">
+           <normaloff>:/drosofila/images/fit1to1.png</normaloff>:/drosofila/images/fit1to1.png</iconset>
+         </property>
+         <property name="shortcut">
+          <string>Ctrl+0</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="explorerGraphZoomInPB">
+         <property name="toolTip">
+          <string>Zoom in. Mouse wheel also zooms around the pointer.</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="drosofila.qrc">
+           <normaloff>:/drosofila/images/plusz.png</normaloff>:/drosofila/images/plusz.png</iconset>
+         </property>
+         <property name="shortcut">
+          <string>Ctrl++</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="explorerGraphFitPB">
+         <property name="toolTip">
+          <string>Fit the whole explored circuit in the available view.</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="icon">
+          <iconset resource="drosofila.qrc">
+           <normaloff>:/drosofila/images/fit.png</normaloff>:/drosofila/images/fit.png</iconset>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="explorerGraphZoomLB">
+         <property name="minimumSize">
+          <size>
+           <width>62</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>100%</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QLabel" name="explorerGraphNavigationLB">
+         <property name="text">
+          <string>Wheel = zoom | drag = pan | double-click = center</string>
+         </property>
+         <property name="wordWrap">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <widget class="QGraphicsView" name="explorerGraphGV">
+       <property name="minimumSize">
+        <size>
+         <width>320</width>
+         <height>240</height>
+        </size>
+       </property>
+       <property name="interactive">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="logDockWidget">
+   <property name="windowIcon">
+    <iconset resource="drosofila.qrc">
+     <normaloff>:/drosofila/images/log.png</normaloff>:/drosofila/images/log.png</iconset>
+   </property>
+   <property name="windowTitle">
+    <string>Log</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>8</number>
+   </attribute>
+   <widget class="QWidget" name="logDockContents">
+    <layout class="QVBoxLayout" name="logDockLayout">
+     <property name="leftMargin">
+      <number>4</number>
+     </property>
+     <property name="topMargin">
+      <number>4</number>
+     </property>
+     <property name="rightMargin">
+      <number>4</number>
+     </property>
+     <property name="bottomMargin">
+      <number>4</number>
+     </property>
+     <item>
+      <widget class="QPlainTextEdit" name="globalLogTE">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>130</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Consolas</family>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="toolTip">
+        <string>Global application log for data loading, experiments, comparisons, epistasis, statistics, archives and cvBasic output.</string>
+       </property>
+       <property name="lineWrapMode">
+        <enum>QPlainTextEdit::NoWrap</enum>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="logButtonsLayout">
+       <item>
+        <spacer name="logButtonsSpacer">
+         <property name="orientation">
+          <enum>Qt::Horizontal</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+       <item>
+        <widget class="QPushButton" name="globalLogClearPB">
+         <property name="text">
+          <string>Clear log</string>
+         </property>
+         <property name="icon">
+          <iconset resource="drosofila.qrc">
+           <normaloff>:/drosofila/images/cleaning.png</normaloff>:/drosofila/images/cleaning.png</iconset>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1453</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>View</string>
+    </property>
+    <addaction name="actionViewCircuitGraph"/>
+    <addaction name="actionViewLog"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionFoundationsItalian"/>
+    <addaction name="actionFoundationsEnglish"/>
+    <addaction name="separator"/>
+    <addaction name="actionHelpItalian"/>
+    <addaction name="actionHelpEnglish"/>
+    <addaction name="separator"/>
+    <addaction name="actionDataCredits"/>
+    <addaction name="actionLicense"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuView"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QToolBar" name="mainToolbar">
+   <property name="windowTitle">
+    <string>Main</string>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextOnly</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionViewCircuitGraph"/>
+   <addaction name="actionViewLog"/>
+   <addaction name="separator"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QDockWidget" name="dock3D">
+   <property name="windowIcon">
+    <iconset resource="drosofila.qrc">
+     <normaloff>:/drosofila/images/3d.png</normaloff>:/drosofila/images/3d.png</iconset>
+   </property>
+   <property name="windowTitle">
+    <string>3D View Controls</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents">
+    <layout class="QVBoxLayout" name="verticalLayout_7">
+     <item>
+      <widget class="QGroupBox" name="viewGB">
+       <property name="title">
+        <string>3D view</string>
+       </property>
+       <layout class="QVBoxLayout" name="verticalLayout_8">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <layout class="QFormLayout" name="formLayout">
+            <item row="0" column="1">
+             <widget class="QCheckBox" name="lightingCB">
+              <property name="toolTip">
+               <string>Enable soft OpenGL lighting. The renderer uses a high ambient component so thin neurites remain visible.</string>
+              </property>
+              <property name="text">
+               <string>Lighting</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QCheckBox" name="smoothMeshCB">
+              <property name="toolTip">
+               <string>Antialias QwtPlot3D mesh lines. Relevant mainly to mesh and wireframe modes.</string>
+              </property>
+              <property name="text">
+               <string>Smooth mesh</string>
+              </property>
+              <property name="checked">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QCheckBox" name="orthographicCB">
+              <property name="toolTip">
+               <string>Switch between perspective and orthographic projection. Orthographic is useful for comparing morphology without perspective size distortion.</string>
+              </property>
+              <property name="text">
+               <string>Orthographic</string>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QCheckBox" name="grid3DCB">
+              <property name="toolTip">
+               <string>Show major grid lines on floor/back/left planes. Useful for spatial reference, disabled by default to avoid clutter.</string>
+              </property>
+              <property name="text">
+               <string>Major grid</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QGridLayout" name="gridLayout">
+            <item row="0" column="0">
+             <widget class="QLabel" name="surfaceStyleLB">
+              <property name="text">
+               <string>Surface</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="0" column="1">
+             <widget class="QComboBox" name="surfaceStyleCB">
+              <property name="toolTip">
+               <string>Filled is the clean default for thin neurites. Filled + mesh overlays polygon edges; Wireframe and Hidden line are useful for geometry inspection.</string>
+              </property>
+              <item>
+               <property name="text">
+                <string>Filled (clean)</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Filled + mesh</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Wireframe</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Hidden line</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="1" column="0">
+             <widget class="QLabel" name="shadingStyleLB">
+              <property name="text">
+               <string>Shading</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="1" column="1">
+             <widget class="QComboBox" name="shadingStyleCB">
+              <property name="toolTip">
+               <string>Gouraud smooths lighting across tube polygons; Flat makes individual faces easier to inspect.</string>
+              </property>
+              <item>
+               <property name="text">
+                <string>Gouraud</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Flat</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="2" column="0">
+             <widget class="QLabel" name="coordinateStyleLB">
+              <property name="text">
+               <string>Axes</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="2" column="1">
+             <widget class="QComboBox" name="coordinateStyleCB">
+              <property name="toolTip">
+               <string>Frame shows three axes with less clutter; Box shows the full coordinate cage; None maximizes connectome visibility.</string>
+              </property>
+              <item>
+               <property name="text">
+                <string>Frame</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Box</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>None</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="3" column="0">
+             <widget class="QLabel" name="colorPaletteLB">
+              <property name="text">
+               <string>Palette</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="3" column="1">
+             <widget class="QComboBox" name="colorPaletteCB">
+              <property name="toolTip">
+               <string>Static morphology palette only. Replay activity, spikes, ablations and Difference use fixed semantic overlay colors so scientific meaning does not change with the theme.</string>
+              </property>
+              <item>
+               <property name="text">
+                <string>Neuron identity</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Ice morphology</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Warm morphology</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>Light laboratory</string>
+               </property>
+              </item>
+             </widget>
+            </item>
+            <item row="4" column="0">
+             <widget class="QLabel" name="meshWidthLB">
+              <property name="text">
+               <string>Mesh</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+              </property>
+             </widget>
+            </item>
+            <item row="4" column="1">
+             <widget class="QDoubleSpinBox" name="meshWidthSB">
+              <property name="toolTip">
+               <string>Line width used by mesh, wireframe and hidden-line rendering.</string>
+              </property>
+              <property name="decimals">
+               <number>1</number>
+              </property>
+              <property name="minimum">
+               <double>0.200000000000000</double>
+              </property>
+              <property name="maximum">
+               <double>4.000000000000000</double>
+              </property>
+              <property name="singleStep">
+               <double>0.100000000000000</double>
+              </property>
+              <property name="value">
+               <double>0.800000000000000</double>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout">
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="resetViewPB">
+            <property name="text">
+             <string>Reset view</string>
+            </property>
+            <property name="icon">
+             <iconset resource="drosofila.qrc">
+              <normaloff>:/drosofila/images/reset.png</normaloff>:/drosofila/images/reset.png</iconset>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QLabel" name="rendererStatusLB">
+          <property name="text">
+           <string>3D backend initializing...</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="paletteSemanticsLB">
+          <property name="toolTip">
+           <string>Palette changes morphology only. Replay semantic colors are invariant so a saved experiment has the same visual meaning under every palette.</string>
+          </property>
+          <property name="text">
+           <string>Replay overlay: activity warms to amber/yellow; spike = pale yellow; selected = violet; ablated = gray; Difference = blue - gray - orange.</string>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="drosofila.qrc">
+     <normaloff>:/drosofila/images/out.png</normaloff>:/drosofila/images/out.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="toolTip">
+    <string>Exit drosofilaLive</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionViewCircuitGraph">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="drosofila.qrc">
+     <normaloff>:/drosofila/images/circuit.png</normaloff>:/drosofila/images/circuit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Circuit Graph</string>
+   </property>
+   <property name="toolTip">
+    <string>Show or hide the Circuit Graph dock</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
+  </action>
+  <action name="actionViewLog">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="drosofila.qrc">
+     <normaloff>:/drosofila/images/log.png</normaloff>:/drosofila/images/log.png</iconset>
+   </property>
+   <property name="text">
+    <string>Log</string>
+   </property>
+   <property name="toolTip">
+    <string>Show or hide the global Log dock</string>
+   </property>
+  </action>
+  <action name="actionFoundationsItalian">
+   <property name="icon">
+    <iconset resource="drosofila.qrc">
+     <normaloff>:/drosofila/images/Italy.png</normaloff>:/drosofila/images/Italy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Fondamenti - Italiano</string>
+   </property>
+   <property name="toolTip">
+    <string>Open the introductory guide from Drosophila biology to connectomics</string>
+   </property>
+  </action>
+  <action name="actionFoundationsEnglish">
+   <property name="icon">
+    <iconset resource="drosofila.qrc">
+     <normaloff>:/drosofila/images/United Kingdom.png</normaloff>:/drosofila/images/United Kingdom.png</iconset>
+   </property>
+   <property name="text">
+    <string>Foundations - English (UK)</string>
+   </property>
+   <property name="toolTip">
+    <string>Open the English introductory guide from Drosophila biology to connectomics</string>
+   </property>
+  </action>
+  <action name="actionHelpItalian">
+   <property name="icon">
+    <iconset resource="drosofila.qrc">
+     <normaloff>:/drosofila/images/Italy.png</normaloff>:/drosofila/images/Italy.png</iconset>
+   </property>
+   <property name="text">
+    <string>Help - Italiano</string>
+   </property>
+   <property name="toolTip">
+    <string>Open the Italian HTML manual in the system default browser</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+  </action>
+  <action name="actionHelpEnglish">
+   <property name="icon">
+    <iconset resource="drosofila.qrc">
+     <normaloff>:/drosofila/images/United Kingdom.png</normaloff>:/drosofila/images/United Kingdom.png</iconset>
+   </property>
+   <property name="text">
+    <string>Help - English (UK)</string>
+   </property>
+   <property name="toolTip">
+    <string>Open the English (UK) HTML manual in the system default browser</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+F1</string>
+   </property>
+  </action>
+  <action name="actionDataCredits">
+   <property name="icon">
+    <iconset resource="drosofila.qrc">
+     <normaloff>:/drosofila/images/help.png</normaloff>:/drosofila/images/help.png</iconset>
+   </property>
+   <property name="text">
+    <string>Data Sources &amp; Credits...</string>
+   </property>
+   <property name="toolTip">
+    <string>Open acknowledgements, data sources, citations and data licence notes</string>
+   </property>
+  </action>
+  <action name="actionLicense">
+   <property name="icon">
+    <iconset resource="drosofila.qrc">
+     <normaloff>:/drosofila/images/license.png</normaloff>:/drosofila/images/license.png</iconset>
+   </property>
+   <property name="text">
+    <string>License...</string>
+   </property>
+   <property name="toolTip">
+    <string>Show the Drosofila Live freeware licence in the internal text browser</string>
+   </property>
+  </action>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QwtPlot</class>
+   <extends>QFrame</extends>
+   <header>qwt_plot.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="drosofila.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>actionExit</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionViewCircuitGraph</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>circuitGraphDockWidget</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>circuitGraphDockWidget</sender>
+   <signal>visibilityChanged(bool)</signal>
+   <receiver>actionViewCircuitGraph</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionViewLog</sender>
+   <signal>triggered(bool)</signal>
+   <receiver>logDockWidget</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>logDockWidget</sender>
+   <signal>visibilityChanged(bool)</signal>
+   <receiver>actionViewLog</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>

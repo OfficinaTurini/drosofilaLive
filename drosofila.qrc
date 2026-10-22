@@ -1,0 +1,33 @@
+<RCC>
+    <qresource prefix="/drosofila">
+        <file>images/drosofila.png</file>
+        <file>images/icon.png</file>
+        <file>images/clock.png</file>
+        <file>images/fileopen.png</file>
+        <file>images/fit.png</file>
+        <file>images/fit1to1.png</file>
+        <file>images/help.png</file>
+        <file>images/Italy.png</file>
+        <file>images/license.png</file>
+        <file>images/minusz.png</file>
+        <file>images/out.png</file>
+        <file>images/plusz.png</file>
+        <file>images/stat.png</file>
+        <file>images/stop.png</file>
+        <file>images/United Kingdom.png</file>
+        <file>images/casual.png</file>
+        <file>images/circuit.png</file>
+        <file>images/compare.png</file>
+        <file>images/database.png</file>
+        <file>images/discovery.png</file>
+        <file>images/experiment.png</file>
+        <file>images/gene.png</file>
+        <file>images/inspection.png</file>
+        <file>images/script.png</file>
+        <file>images/replay.png</file>
+        <file>images/3d.png</file>
+        <file>images/log.png</file>
+        <file>images/reset.png</file>
+        <file>images/cleaning.png</file>
+    </qresource>
+</RCC>

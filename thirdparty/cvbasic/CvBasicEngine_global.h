@@ -1,0 +1,12 @@
+#ifndef CVBASIC_ENGINE_GLOBAL_H
+#define CVBASIC_ENGINE_GLOBAL_H
+
+#include <QtCore/qglobal.h>
+
+#if defined(CVBASICENGINE_LIBRARY)
+#  define CVBASICENGINE_API Q_DECL_EXPORT
+#else
+#  define CVBASICENGINE_API Q_DECL_IMPORT
+#endif
+
+#endif // CVBASIC_ENGINE_GLOBAL_H

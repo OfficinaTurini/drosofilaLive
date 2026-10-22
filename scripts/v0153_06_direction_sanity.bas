@@ -1,0 +1,19 @@
+' drosofilaLive v0.15.3.2 - Circuit Explorer direction sanity test
+' No LIF runs: this tests the scriptable graph stage only.
+PRINT "=== v0.15.3.2 EXPLORER DIRECTION SANITY ==="
+
+DRO.PATHS
+
+DRO.EXPLORE "TARGET", "UPSTREAM", 2, 10, 100
+DRO.DISCOVERYRANK
+DRO.DISCOVERYCSV "v0153_upstream.csv"
+
+DRO.EXPLORE "TARGET", "DOWNSTREAM", 2, 10, 100
+DRO.DISCOVERYRANK
+DRO.DISCOVERYCSV "v0153_downstream.csv"
+
+DRO.EXPLORE "TARGET", "BOTH", 2, 10, 100
+DRO.DISCOVERYRANK
+DRO.DISCOVERYCSV "v0153_both.csv"
+
+PRINT "=== DIRECTION SANITY COMPLETE ==="

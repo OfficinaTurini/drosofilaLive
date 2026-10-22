@@ -1,0 +1,26 @@
+' drosofilaLive v0.15.3.2 - deterministic reproducibility test
+' The two *_hits.csv files must be byte-identical for the same build/data.
+PRINT "=== v0.15.3.2 SAME-SEED REPRODUCIBILITY ==="
+
+DRO.PATHS
+
+DRO.DURATION 1000
+DRO.SUGAR 100
+DRO.TRIALS 1
+DRO.CLEARWATCH
+DRO.WATCH "TARGET"
+DRO.EXPLORE "TARGET", "UPSTREAM", 2, 10, 100
+
+DRO.SEED 424242
+DRO.SCREEN 10
+DRO.DISCOVERYCHECK
+DRO.DISCOVERYCSV "v0153_repro_A.csv"
+
+DRO.CLEARDISCOVERY
+DRO.SEED 424242
+DRO.SCREEN 10
+DRO.DISCOVERYCHECK
+DRO.DISCOVERYCSV "v0153_repro_B.csv"
+
+PRINT "Compare v0153_repro_A_hits.csv with v0153_repro_B_hits.csv"
+PRINT "=== REPRODUCIBILITY TEST COMPLETE ==="

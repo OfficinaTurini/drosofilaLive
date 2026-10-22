@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{A4B91C60-52F7-4EDC-B258-9A58D8B2A50F}</UniqueIdentifier>
+      <Extensions>cpp;c</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{E2F88DB9-0F44-4BE4-91E4-D1B6C2BF22AA}</UniqueIdentifier>
+      <Extensions>h;hpp</Extensions>
+    </Filter>
+    <Filter Include="Forms">
+      <UniqueIdentifier>{72A741D8-A3A0-48B2-BF5F-20BD45C2CE70}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+    </Filter>
+    <Filter Include="Model">
+      <UniqueIdentifier>{086438A5-D6FD-41EF-A10A-5E6B7889535B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Renderer">
+      <UniqueIdentifier>{9D53E506-3D4A-465F-832A-3E09994F15C0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Core">
+      <UniqueIdentifier>{5D6F27D1-3FA0-4F10-A784-3D0AF0B67831}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="IO">
+      <UniqueIdentifier>{B7C5558A-42B8-4CB3-A41A-69C5FA9E4C01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Tools">
+      <UniqueIdentifier>{8B56A0DD-3B46-4AB5-BBEA-60102B6863D2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Simulation">
+      <UniqueIdentifier>{E792BCE6-DBFA-4B79-A307-2A410A4A6844}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Experiment">
+      <UniqueIdentifier>{A7D4CC72-8134-4C87-A8D4-89EC46244731}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Timeline">
+      <UniqueIdentifier>{1C4C9C9D-2F61-41AA-99BC-B7A3120C88DA}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Script">
+      <UniqueIdentifier>{D981BE44-41D8-47F8-A783-0D6C438F3C9D}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Archive">
+      <UniqueIdentifier>{C8D22A1A-9B58-4F56-8FC2-724D61F09277}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Statistics">
+      <UniqueIdentifier>{A3B1C235-AC88-4E3B-8F4E-5E9D4756E9AB}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Explorer">
+      <UniqueIdentifier>{B1F449CF-0F40-4B23-9E6F-59C1235C77A1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Discovery">
+      <UniqueIdentifier>{C2A850D0-3B2C-4B2C-A89E-8B8AA4F7D150}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Reproduction">
+      <UniqueIdentifier>{63D2C710-7189-44C2-BF1C-4B07047D54F6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Analysis">
+      <UniqueIdentifier>{9C6C53C4-86DF-4C2E-A00A-5BE86A0D1700}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Documentation">
+      <UniqueIdentifier>{BCAFE8F2-C377-4F0C-A833-B0CBE7D4D7A8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource">
+      <UniqueIdentifier>{57078ed3-275a-468d-bc49-408d64254ef0}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="mainwindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="renderer\QwtPlot3DRenderer.cpp">
+      <Filter>Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="diagnostics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="core\Connectome.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\RuntimePaths.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="io\PrecomputedSkeletonLoader.cpp">
+      <Filter>IO</Filter>
+    </ClCompile>
+    <ClCompile Include="model\CausalCircuit.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="model\SkeletonSceneTransform.cpp">
+      <Filter>Model</Filter>
+    </ClCompile>
+    <ClCompile Include="core\LifEngine.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="core\StimulusSet.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="simulation\SimulationController.cpp">
+      <Filter>Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="experiment\ExperimentController.cpp">
+      <Filter>Experiment</Filter>
+    </ClCompile>
+    <ClCompile Include="timeline\TimelinePlotController.cpp">
+      <Filter>Timeline</Filter>
+    </ClCompile>
+    <ClCompile Include="script\ScriptBridge.cpp">
+      <Filter>Script</Filter>
+    </ClCompile>
+    <ClCompile Include="archive\ExperimentArchive.cpp">
+      <Filter>Archive</Filter>
+    </ClCompile>
+    <ClCompile Include="statistics\StatisticsController.cpp">
+      <Filter>Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="statistics\StatisticsPlotController.cpp">
+      <Filter>Statistics</Filter>
+    </ClCompile>
+    <ClCompile Include="explorer\CircuitExplorer.cpp">
+      <Filter>Explorer</Filter>
+    </ClCompile>
+    <ClCompile Include="explorer\CircuitGraphController.cpp">
+      <Filter>Explorer</Filter>
+    </ClCompile>
+    <ClCompile Include="discovery\CausalDiscoveryController.cpp">
+      <Filter>Discovery</Filter>
+    </ClCompile>
+    <ClCompile Include="reproduction\ReproductionAnalyzer.cpp">
+      <Filter>Reproduction</Filter>
+    </ClCompile>
+    <ClCompile Include="analysis\CausalStructureAnalysis.cpp">
+      <Filter>Analysis</Filter>
+    </ClCompile>
+    <ClCompile Include="analysis\CausalSurprisePlotController.cpp">
+      <Filter>Analysis</Filter>
+    </ClCompile>
+    <ClCompile Include="StampChecker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="mainwindow.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="model\SkeletonNode.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="model\NeuronSkeleton.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="model\NeuronVisualState.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer\INeuronRenderer3D.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="renderer\QwtPlot3DRenderer.h">
+      <Filter>Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="io\PrecomputedSkeletonLoader.h">
+      <Filter>IO</Filter>
+    </ClInclude>
+    <ClInclude Include="model\CausalCircuit.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <ClInclude Include="model\SkeletonSceneTransform.h">
+      <Filter>Model</Filter>
+    </ClInclude>
+    <QtMoc Include="simulation\SimulationController.h">
+      <Filter>Simulation</Filter>
+    </QtMoc>
+    <QtMoc Include="experiment\ExperimentController.h">
+      <Filter>Experiment</Filter>
+    </QtMoc>
+    <ClInclude Include="experiment\ExperimentData.h">
+      <Filter>Experiment</Filter>
+    </ClInclude>
+    <ClInclude Include="timeline\TimelinePlotController.h">
+      <Filter>Timeline</Filter>
+    </ClInclude>
+    <QtMoc Include="script\ScriptBridge.h">
+      <Filter>Script</Filter>
+    </QtMoc>
+    <ClInclude Include="archive\ExperimentArchive.h">
+      <Filter>Archive</Filter>
+    </ClInclude>
+    <QtMoc Include="statistics\StatisticsController.h">
+      <Filter>Statistics</Filter>
+    </QtMoc>
+    <ClInclude Include="statistics\StatisticsPlotController.h">
+      <Filter>Statistics</Filter>
+    </ClInclude>
+    <QtMoc Include="explorer\CircuitExplorer.h">
+      <Filter>Explorer</Filter>
+    </QtMoc>
+    <QtMoc Include="explorer\CircuitGraphController.h">
+      <Filter>Explorer</Filter>
+    </QtMoc>
+    <QtMoc Include="discovery\CausalDiscoveryController.h">
+      <Filter>Discovery</Filter>
+    </QtMoc>
+    <ClInclude Include="reproduction\ReproductionAnalyzer.h">
+      <Filter>Reproduction</Filter>
+    </ClInclude>
+    <ClInclude Include="analysis\CausalStructureAnalysis.h">
+      <Filter>Analysis</Filter>
+    </ClInclude>
+    <QtMoc Include="analysis\CausalSurprisePlotController.h">
+      <Filter>Analysis</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="mainwindow.ui">
+      <Filter>Forms</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="diagnostics.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="core\Connectome.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\RuntimePaths.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\BinaryFormat.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\LifEngine.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="core\StimulusSet.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\cvbasic\CvBasicEngine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\cvbasic\CvBasicEngine_global.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StampChecker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="README_V0_4_CAUSAL_CIRCUIT.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="README_V0_5_GUI_CLEANUP.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="tools\prepare_flywire783_circuit.ps1">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="data\flywire783_circuit\README.txt">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="data\stimuli\sugarR_v783_20of21.txt">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="README_V0_6_SIMULATION_CORE.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="README_V0_7_EXPERIMENT_CONTROLLER.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="README_V0_8_TABS_TIMELINE.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="README_V0_9_CAUSAL_COMPARE.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="README_V0_10_CVBASIC_SCRIPTING.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="README_V0_10_1_NATIVE_HOST_COMMANDS.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="README_V0_10_2_DRO_NAMESPACE_PROGRESS.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="scripts\v0102_regression_dnGe031.bas">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="README_V0_11_BATCH_EPISTASIS.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="scripts\v011_epistasis_dnGe031_cb0393.bas">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="scripts\v011_epistasis_all_pairs.bas">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="README_V0_12_EXPERIMENT_ARCHIVE.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="scripts\v012_archive_replay.bas">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="README_V0_13_STATISTICAL_VALIDATION.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="README_V0_13_1_GUI_CONSOLIDATION.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="scripts\v013_statistical_validation.bas">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="README_V0_14_CIRCUIT_EXPLORER.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="README_V0_15_AUTOMATED_CAUSAL_DISCOVERY.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="README_V0_15_3_2_RUNTIME_WORKDIR.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="scripts\README_V0153_TEST_SUITE.md">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="scripts\v0153_01_discovery_smoke.bas">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="scripts\v0153_02_end_to_end_reference.bas">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="scripts\v0153_03_intensive_discovery.bas">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="scripts\v0153_04_reproducibility_same_seed.bas">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="scripts\v0153_05_graph_parameter_sweep.bas">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="scripts\v0153_06_direction_sanity.bas">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="scripts\v0153_07_legacy_regression.bas">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="scripts\v0153_08_seed_sensitivity.bas">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="scripts\verify_v0153_smoke.ps1">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="scripts\verify_v0153_repro.ps1">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="scripts\verify_v0153_reference.ps1">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="scripts\verify_v0153_all.ps1">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="README_V0_16_SCIENTIFIC_PROVENANCE_DISCOVERY_REPLAY.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="README_V0_16_0_R1_DISCOVERY_REPLAY_FIX.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="README_V0_16_0_R2_REPLAY_QWT_SHUTDOWN_FIX.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="DROSOFILALIVE_CHECKPOINT_v0_16_0_R2.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="DROSOFILALIVE_CHECKPOINT_v0_16_0_R1.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="DROSOFILALIVE_CHECKPOINT_v0_16_0.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="scripts\README_V016_TEST_SUITE.md">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="scripts\v016_01_archive_discovery_roundtrip.bas">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="scripts\v016_02_discovery_archive_replay.bas">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="scripts\verify_v016_archive.ps1">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="README_V0_16_0_R5_2_MORPHOLOGY_PALETTES.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="DROSOFILALIVE_CHECKPOINT_v0_16_0_R5_2.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="README_V0_16_1_SCIENTIFIC_REPRODUCE.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="DROSOFILALIVE_CHECKPOINT_v0_16_1.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="scripts\README_V0161_TEST_SUITE.md">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="scripts\verify_v0161_reproduce_report.ps1">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="README_V0_17_GRAPH_CAUSALITY_CAUSAL_SURPRISE.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="DROSOFILALIVE_CHECKPOINT_v0_17.md">
+      <Filter>Tools</Filter>
+    </None>
+    <None Include="scripts\README_V017_TEST_SUITE.md">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="scripts\v017_01_causal_surprise.bas">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="scripts\verify_v017_surprise.ps1">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="help\style.css">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="help\it\index.html">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="help\it\fondamenti.html">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="help\en-GB\index.html">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="help\en-GB\fundamentals.html">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="help\license.html">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="help\credits.html">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="README_V0_18_RELEASE_DOCUMENTATION.md">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="DROSOFILALIVE_CHECKPOINT_v0_18.md">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="README_V0_18_R1_FOUNDATIONS.md">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="DROSOFILALIVE_CHECKPOINT_v0_18_R1.md">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="README_V0_18_R3_LAYOUT_UNIFICATION.md">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="DROSOFILALIVE_CHECKPOINT_v0_18_R3.md">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="tools\migrate_layout_v018_r3.ps1">
+      <Filter>Scripts</Filter>
+    </None>
+    <None Include="release\README_EXTERNAL_PACKAGING.md">
+      <Filter>Documentation</Filter>
+    </None>
+    <None Include="scripts\README_V018_TEST_SUITE.md">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="scripts\verify_v018_release_docs.ps1">
+      <Filter>Script</Filter>
+    </None>
+    <None Include="README_V0_16_0_R5_QWT3D_VISUAL_CONTROLS.md" />
+    <None Include="DROSOFILALIVE_CHECKPOINT_v0_16_0_R5.md" />
+    <None Include="README_V0_16_1_R1_PREFLIGHT_UTF8_FIX.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <QtRcc Include="drosofila.qrc">
+      <Filter>Resource</Filter>
+    </QtRcc>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="drosofila.rc">
+      <Filter>Resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon1.ico">
+      <Filter>Resource</Filter>
+    </Image>
+  </ItemGroup>
+</Project>
